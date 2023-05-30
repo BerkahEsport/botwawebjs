@@ -1,0 +1,37 @@
+{
+  "name": "berkahesport",
+  "version": "1.0.0",
+  "description": "BERKAHESPORT.ID WhatsApp Bot",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "lib": "lib",
+    "src": "src",
+    "plugins": "plugins"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@xct007/frieren-scraper": "^0.0.2",
+    "awesome-phonenumber": "^5.6.0",
+    "axios": "^1.4.0",
+    "cfonts": "^3.2.0",
+    "chalk": "^4.1.2",
+    "chokidar": "^3.5.3",
+    "file-type": "^18.4.0",
+    "lodash": "^4.17.21",
+    "lowdb": "^2.1.0",
+    "moment-timezone": "^0.5.43",
+    "node-fetch": "^2.6.9",
+    "path": "^0.12.7",
+    "pino": "^8.12.0",
+    "pino-pretty": "^10.0.0",
+    "qrcode-terminal": "^0.12.0",
+    "syntax-error": "^1.4.0",
+    "url": "^0.11.0",
+    "util": "^0.12.5",
+    "whatsapp-web.js": "^1.20.0",
+    "yargs": "^17.7.2"
+  }
+}

@@ -31,6 +31,7 @@ global.owner = [
     // [nomor kamu, nama kamu, developer bukan?]
     ["62895375950107", "berkahesport", true],
     ["628953751549895", "moexti", true],
+    ["6281260900707", "W a N", true]
 ]
 
 global.sticker = {

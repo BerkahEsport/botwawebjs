@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <base target="_blank"/>
     <div class="container">
-      <img align="center" src="https://komarev.com/ghpvc/?username=BerkahEsport&color=brightgreen&style=plastic&label=%F0%9F%91%80+Profile+Views">
+      <img align="center" src="https://komarev.com/ghpvc/?username=BerkahEsport&color=brightgreen&style=plastic&label=%F0%9F%91%80+Profile+Views"> <br/>
       <a class="navbar-brand fw-bold" href="https://wa.me/62895375950107">Chat OWNER</a>
       <a class="navbar-brand fw-bold" href="https://wa.me/6289649672623?text=.menu"><br/>Chat BOT (Aktif)</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

@@ -1,6 +1,7 @@
 import syntaxerror from "syntax-error";
 import { format } from "util";
-
+import { createRequire } from "module";
+const require = createRequire(import.meta.url)
 let handler = async (m, _2) => {
   let { conn, usedPrefix, noPrefix, args, groupMetadata } = _2;
   let _return;

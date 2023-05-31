@@ -2,9 +2,9 @@ import fs from 'fs';
 import { fileURLToPath } from "node:url"
 
 /*============== WATERMARK ==============*/
-global.wm = '                「 ꧁༒☬𝓑𝓔𝓡𝓚𝓐𝓔𝓢𝓟𝓞𝓡𝓣.𝓘𝓓☬༒꧂ 」' //Main Watermark
+global.wm =  '⫹⫺ ★彡[ʙᴇʀᴋᴀᴇꜱᴘᴏʀᴛ.ɪᴅ]彡★'//Ganti ae ini buat Main Watermark
 global.wm2 = '🅱🅴🆁🅺🅰🅴🆂🅿🅾🆁🆃.🅸🅳'
-global.wm3 = '⫹⫺ ★彡[ʙᴇʀᴋᴀᴇꜱᴘᴏʀᴛ.ɪᴅ]彡★'
+global.wm3 = '                「 ꧁༒☬𝓑𝓔𝓡𝓚𝓐𝓔𝓢𝓟𝓞𝓡𝓣.𝓘𝓓☬༒꧂ 」'
 global.author = '                「 *@爪ㄖ乇乂ㄒ丨* 」'
 
 /*============== PERINGATAN ==============*/

@@ -9,10 +9,8 @@ import cfonts from 'cfonts';
 import { createInterface } from 'readline'
 import yargs from 'yargs'
 
-// https://stackoverflow.com/a/50052194
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const require = createRequire(__dirname) // Bring in the ability to create the 'require' method
-const { name, author } = require(join(__dirname, './package.json')) // https://www.stefanjudis.com/snippets/how-to-import-json-files-in-es-modules-node-js/
 const { say } = cfonts
 const rl = createInterface(process.stdin, process.stdout)
 
@@ -74,7 +72,6 @@ function start(file) {
     if (!rl.listenerCount()) rl.on('line', line => {
       p.emit('message', line.trim())
     })
-  // console.log(p)
 }
 
 start('main.js')

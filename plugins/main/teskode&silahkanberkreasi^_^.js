@@ -1,7 +1,7 @@
 let handler = async (m, { args, usedPrefix, command, text }) => {
 	if (!args) return m.reply(`${usedPrefix + command} link`); // Jika tidak ada teks maka kamu jawab apa?
     m.reply(`Berhasil...`) // Jawab dari bot bentuk teks.
-	conn.sendFile(m.from, 'https://telegra.ph/file/a46ab7fa39338b1f54d5a.mp4', "Berhasil mengirim Gambar...") // Jawab dari bot bentuk Gambar / Video.
+	conn.sendFile(m.chat, 'https://telegra.ph/file/a46ab7fa39338b1f54d5a.mp4', '', "Berhasil mengirim Gambar...", m) // Jawab dari bot bentuk Gambar / Video.
 	
 	
 
@@ -12,7 +12,7 @@ let handler = async (m, { args, usedPrefix, command, text }) => {
 	"data": {"id":"7189917930761506075",
 	"region":"ID","title":"",
 	"cover":"https://p16-sign-va.tiktokcdn.com/obj/tos-useast2a-p-0037-aiso/10b2f36b59d34da9bd06c10d19c32301_1674033227?x-expires=1685408400&x-signature=oGoD0Yu9v0i53fM4LFZJyPDCHF8%3D&s=AWEME_DETAIL&se=false&sh=&sc=dynamic_cover&l=202305290157360D50707B071C52778564"}}
-	conn.json(m.from, json) // Untuk melihat file json menjadi teks...
+	conn.json(m.chat, json) // Untuk melihat file json menjadi teks...
 
 }
 

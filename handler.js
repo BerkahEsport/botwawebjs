@@ -14,7 +14,7 @@ export async function handler(m) {
   let chats = await m.getChat();
   let users = await m.getContact();
   try {
-    //m = m || smsg(this, m)
+    m.chat = m.from.endsWith("@g.us") ? m.author : m.from // Buat Copas plugin BOT BAILEYS ^_^
     //  <----- Fungsi Database -----> Tambahin sendiri jika perlu.
     try {
       let user = global.db.data.users[m.author || m.from];

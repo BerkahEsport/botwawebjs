@@ -21,8 +21,7 @@ import { createRequire } from 'module' // Bring in the ability to create the 're
 global.__filename = function filename(pathURL = import.meta.url, rmPrefix = platform !== 'win32') { return rmPrefix ? /file:\/\/\//.test(pathURL) ? fileURLToPath(pathURL) : pathURL : pathToFileURL(pathURL).toString() }; global.__dirname = function dirname(pathURL) { return path.dirname(global.__filename(pathURL, true)) }; global.__require = function require(dir = import.meta.url) { return createRequire(dir) }
 const __dirname = global.__dirname(import.meta.url)
 import { client } from "./lib/simple.js"
-import wweb from 'whatsapp-web.js';
-const {LocalAuth } = wweb
+import {LocalAuth } from 'whatsapp-web.js'
 import { handler } from './handler.js'
 import qrcode from 'qrcode-terminal'
 import syntaxerror from "syntax-error";
@@ -46,12 +45,33 @@ global.db = new Low(
 
 async function ClientConnect() { 
     global.conn = new client({
-    authStrategy: new LocalAuth(),
-    puppeteer: {
-        args: ['--no-sandbox'],
-        executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe' // Wajib diisi lokasi Chrome kamu.
+    authStrategy: new LocalAuth(), //make mywajs amiruldev20
+    playwright: {
+      headless: true,
+      devtools: false,
+      args: [
+          '--aggressive-tab-discard',
+          '--disable-accelerated-2d-canvas',
+          '--disable-application-cache',
+          '--disable-cache',
+          '--disable-dev-shm-usage',
+          '--disable-gpu',
+          '--disable-offline-load-stale-cache',
+          '--disable-setuid-sandbox',
+          '--disable-setuid-sandbox',
+          '--disk-cache-size=0',
+          '--ignore-certificate-errors',
+          '--no-first-run',
+          '--no-sandbox',
+          '--no-zygote',
+      ],
+      bypassCSP: true,
     },
-    userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15'
+    markOnlineAvailable: true,
+    qrMaxRetries: 6,
+    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
+    takeoverTimeoutMs: 'Infinity',
+    clearSessions: true
 });
 
 

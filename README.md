@@ -38,6 +38,7 @@ WhatsappBOT ini menggunakan whatsapp-web.js bukan Baileys.
 <br/>[🚫ALERT🚫] 
 <br/>Script ini dibuat sendiri dan masih tahap perkembangan. <br/>Bukan sc Recode!!!
 <br/><br/> ©Credit: @moexti
+        <br/> ©Collab: @Leuthra
       </div>
     </div>
   </div>

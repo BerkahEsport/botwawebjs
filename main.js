@@ -21,7 +21,7 @@ import { createRequire } from 'module' // Bring in the ability to create the 're
 global.__filename = function filename(pathURL = import.meta.url, rmPrefix = platform !== 'win32') { return rmPrefix ? /file:\/\/\//.test(pathURL) ? fileURLToPath(pathURL) : pathURL : pathToFileURL(pathURL).toString() }; global.__dirname = function dirname(pathURL) { return path.dirname(global.__filename(pathURL, true)) }; global.__require = function require(dir = import.meta.url) { return createRequire(dir) }
 const __dirname = global.__dirname(import.meta.url)
 import { client } from "./lib/simple.js"
-import {LocalAuth } from 'whatsapp-web.js'
+import {LocalAuth} from 'whatsapp-web.js'
 import { handler } from './handler.js'
 import qrcode from 'qrcode-terminal'
 import syntaxerror from "syntax-error";

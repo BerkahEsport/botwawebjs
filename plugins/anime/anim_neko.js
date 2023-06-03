@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-let handler = async (m, { conn,usedPrefix, command,isPrems }) => {
+let handler = async (m, { conn }) => {
 function pickRandom ( list )
   { return list[ Math.floor( Math.random() * list.length ) ] }
 let neko = await (await fetch(`https://raw.githubusercontent.com/BerkahEsport/api-be/main/lib/anime/nsfw/nsfwNeko.json`)).json()

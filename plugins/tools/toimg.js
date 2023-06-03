@@ -1,5 +1,4 @@
-import wweb from 'whatsapp-web.js';
-const { MessageMedia } = wweb
+import { MessageMedia} from 'whatsapp-web.js';
 
 let handler = async (m, { text, usedPrefix, command }) => {
     let quotedMsg = await m.getQuotedMessage()

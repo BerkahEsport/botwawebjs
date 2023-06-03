@@ -1,6 +1,4 @@
-import fetch from 'node-fetch'
-import pkg from 'whatsapp-web.js'
-const { MessageMedia} = pkg 
+import { MessageMedia} from 'whatsapp-web.js'
 import { pinterest } from '@xct007/frieren-scraper'
 import { fileTypeFromBuffer } from 'file-type'
 let handler = async (m, { args, usedPrefix, command }) => {

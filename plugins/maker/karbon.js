@@ -1,13 +1,10 @@
 import fetch from 'node-fetch'
-import pkg from 'whatsapp-web.js'
-const { MessageMedia} = pkg 
-import { fileTypeFromBuffer } from 'file-type'
 let handler = async (m, { text, usedPrefix, command }) => {
     const code = m.hasQuotedMsg ? m._data.quotedMsg.body : text
     if (!code) return m.reply(`Input Code:\n${usedPrefix + command} console.log('BerkahEsport.ID')`);
     let carbon = await generateCarbon(code)
     if (carbon.status !== 200) return m.reply(`${carbon.status} ${carbon.statusText}`);
-    m.reply(new MessageMedia((await fileTypeFromBuffer(carbon.result)).mime, carbon.result.toString("base64")))
+    conn.sendMessage(m.chat, carbon.result, {caption: ty})
 }
     handler.help = ['carbon']
     handler.tags = ['maker']

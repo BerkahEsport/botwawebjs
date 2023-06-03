@@ -18,7 +18,7 @@ export async function handler(m) {
   
   let users = await m.getContact();
   try {
-    m.chat = m.from.endsWith("@g.us") ? m.author : m.from // Buat Copas plugin BOT BAILEYS ^_^
+    m.chat = m.from// .endsWith("@g.us") ? m.author : m.from // Buat tambahan aja.
     //  <----- Fungsi Database -----> Tambahin sendiri jika perlu.
     try {
       let user = global.db.data.users[m.author || m.from];
@@ -94,7 +94,7 @@ export async function handler(m) {
 
     // Untuk akses plugins kamu
     let isGroup = m.from.endsWith("@g.us");
-    let isROwner = [this.info.me.user, ...global.owner.map(([number]) => number)].map((v) => v?.replace(/[^0-9]/g, "")).includes((isGroup ? m.author : m.from).split("@")[0]);
+    let isROwner = [...global.owner.map(([number]) => number)].map((v) => v?.replace(/[^0-9]/g, "") + '@c.us').includes(isGroup ? m.author : m.from);
     let isOwner = isROwner || m.fromMe;
     let participants = isGroup ? (await m.getChat()).participants : [];
     let AdminFilter = isGroup ? participants.filter(v => v.isAdmin).map(v => v.id.user) : '';
@@ -227,14 +227,16 @@ export async function handler(m) {
           await plugin.call(this, m, extra);
           if (!isPrems)  m.limit = m.limit || plugin.limit || false;
         } catch (e) {
-          m.error = e;
+          
           console.error(e);
           if (e) { // Jika terjadi error Kode
             let text = format(e);
+            m.reply(`ERROR... Tanya sama owner ae...`)
             for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)) {
-              m.reply(`Fitur ERROR, laporkan Pemilik BOT. \n*🗂️ Plugin:* ${m.plugin}\n*👤 Pengirim:* ${(isGroup ? m.author : m.from).replace('@c.us', '')}\n*💬 Chat Owner:* https://wa.me/${jid}\n*💻 Command:* ${usedPrefix}${command} ${args.join(' ')}\n📄 *Error Logs:*\n\n\`\`\`${text}\`\`\``.trim());
+              m.error(jid + '@c.us', `*🗂️ Plugin:* ${m.plugin}\n*👤 Sender:* ${m.sender}\n*💬 Chat:* https://wa.me/${m.sender.replace('@s.whatsapp.net','')}\n*💻 Command:* ${usedPrefix}${command} ${args.join(' ')}\n📄 *Error Logs:*\n\n\`\`\`${text}\`\`\``.trim(), { quoted: m})
             }
           }
+        
         } finally {
           if (typeof plugin.after === 'function') {
             try {
@@ -302,7 +304,7 @@ global.dfail = (type, m, conn) => {
       nsfw: `*ℙ𝔸ℝ𝔸ℍ 𝕃𝕌!!!* • ɴᴀᴋ ᴋᴀᴍᴜ ʙᴇʟᴜᴍ ᴄᴜᴋᴜᴘ ᴜᴍᴜʀ. ᴊᴀɴɢᴀɴ ᴍᴀᴋꜱᴀ!!!`,
       text: `*𝕋𝔼𝕂𝕊 𝕃𝕀𝕄𝕀𝕋𝔼𝔻* • ᴛᴇᴋꜱ ʏᴀɴɢ ᴋᴀᴍᴜ ᴍᴀꜱᴜᴋᴋᴀɴ ᴛᴇʀʟᴀʟᴜ ʙᴀɴʏᴀᴋ! ᴍᴀᴋꜱ. 1500 ᴋᴀʀᴀᴋᴛᴇʀ. ` 
     }[type];
-    if (msg) return conn.sendFilePath(m.from, gambar ,msg) 
+    if (msg) return conn.sendMessage(m.from, gambar ,{caption: msg}) 
   }
 
 

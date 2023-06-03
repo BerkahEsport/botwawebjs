@@ -1,6 +1,5 @@
 import fetch from 'node-fetch'
-import pkg from 'whatsapp-web.js'
-const { MessageMedia} = pkg 
+import { MessageMedia} from 'whatsapp-web.js'
 import { fileTypeFromBuffer } from 'file-type'
 let handler = async (m, { args, usedPrefix, command }) => {
     if (!args || !args[0]) return m.reply(`Input URL:\n${usedPrefix + command} https://t.me/addstickers/shironacry`);

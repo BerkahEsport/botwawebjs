@@ -1,7 +1,7 @@
 let handler = async (m, { args, usedPrefix, command, text }) => {
 	if (!args) return m.reply(`${usedPrefix + command} link`); // Jika tidak ada teks maka kamu jawab apa?
-    m.reply(`Berhasil...`) // Jawab dari bot bentuk teks.
-	conn.sendFile(m.chat, 'https://telegra.ph/file/a46ab7fa39338b1f54d5a.mp4', '', "Berhasil mengirim Gambar...", m) // Jawab dari bot bentuk Gambar / Video.
+    m.reply(`Berhasil dijawab...`) // Jawab dari bot bentuk teks.
+	conn.sendMessage(m.chat, 'https://telegra.ph/file/a46ab7fa39338b1f54d5a.mp4', { quoted: m}) // Jawab dari bot bentuk Gambar / Video.
 	
 	
 

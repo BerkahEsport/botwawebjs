@@ -1,6 +1,4 @@
-import fetch from 'node-fetch'
-import pkg from 'whatsapp-web.js'
-const { MessageMedia } = pkg
+import { MessageMedia} from 'whatsapp-web.js'
 let handler = async (m, { conn, text }) => {
   let info= `
 *BIODATA OWNER*

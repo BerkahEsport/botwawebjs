@@ -1,6 +1,5 @@
 import fetch from 'node-fetch' //Buat ngambil link gambar...
-import pkg from 'whatsapp-web.js' // Untuk BOT
-const { MessageMedia} = pkg 
+import { MessageMedia} from 'whatsapp-web.js' // Untuk BOT
 import { facebook } from '@xct007/frieren-scraper'
 import { fileTypeFromBuffer } from 'file-type'
 let handler = async (m, { args, usedPrefix, command }) => {

@@ -45,7 +45,7 @@ conn.sendMessage(m.from, buffer, { asSticker: true, quoted: m })
 }
 
 handler.help = ['quickchat']
-handler.tags = ['image']
+handler.tags = ['maker']
 handler.command = /^(quickchat|qc)$/i
 handler.register = true
 export default handler

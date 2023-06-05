@@ -16,10 +16,12 @@
     "@xct007/frieren-scraper": "^0.0.2",
     "awesome-phonenumber": "^5.7.0",
     "cfonts": "^3.2.0",
+    "fluent-ffmpeg": "^2.1.2",
     "lodash": "^4.17.21",
     "lowdb": "^2.1.0",
     "mime-types": "^2.1.35",
     "node-fetch": "^3.3.1",
+    "node-webpmux": "^3.1.7",
     "syntax-error": "^1.4.0",
     "whatsapp-web.js": "github:amiruldev20/mywajs#v2",
     "yargs": "^17.7.2"

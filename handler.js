@@ -3,10 +3,11 @@
 
 
 import './config.js';
+import './main.js'
 import { format } from 'util';
-import fs from 'fs';
-
-import { fileURLToPath } from "node:url"
+import chalk from 'chalk'
+import fs from 'fs'
+import { fileURLToPath } from 'node:url';
 var isNumber = x => typeof x === 'number' && !isNaN(x);
 export async function handler(m) {
   if (!m)
@@ -21,9 +22,9 @@ export async function handler(m) {
     m.chat = m.from// .endsWith("@g.us") ? m.author : m.from // Buat tambahan aja.
     //  <----- Fungsi Database -----> Tambahin sendiri jika perlu.
     try {
-      let user = global.db.data.users[m.author || m.from];
+      let user = global.db.data.users[m.sender];
       if (typeof user !== 'object')
-        global.db.data.users[m.author || m.from] = {};
+        global.db.data.users[m.sender] = {};
       if (user) {
         if (!user.registered) {
           if (!('name' in user))
@@ -66,7 +67,7 @@ export async function handler(m) {
         if (!isNumber(user.afk))
           user.afk = -1;
       } else
-        global.db.data.users[m.author || m.from] = {
+        global.db.data.users[m.sender] = {
           name: users.pushname,
           age: -1,
           regTime: -1,
@@ -100,7 +101,7 @@ export async function handler(m) {
     let AdminFilter = isGroup ? participants.filter(v => v.isAdmin).map(v => v.id.user) : '';
     let isAdmin = isGroup ? AdminFilter.map(v => v.replace(/[^0-9]/g, '') + '@c.us').includes(m.author ? m.author : m.from) : '';
     let isBotAdmin = isGroup ? AdminFilter.map(v => v.replace(/[^0-9]/g, '') + '@c.us').includes(conn.info.me._serialized) : '';
-    const isPrems = isROwner || global.db.data.users[m.author || m.from].premium == true;
+    const isPrems = isROwner || global.db.data.users[m.sender].premium == true;
     // Untuk menjalankan plugin prefix dan cmd kamu
     let usedPrefix;
     for (let name in global.plugins) {
@@ -198,13 +199,13 @@ export async function handler(m) {
         }
 
         m.isCommand = true;
+        m.exp = 1
         let xp = 'exp' in plugin ? parseInt(plugin.exp) : 3; // <----- EXP yang didapat per Command ----->
         if (xp > 200)
           m.reply('ɴɢᴇᴄɪᴛ -_-'); // // <----- Jika EXP didapat melebihi 200 ----->
-
         else
           m.exp += xp;
-        if (!isPrems && plugin.limit && global.db.data.users[m.author || m.from].limit < plugin.limit * 1) {
+        if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
           this.reply(m.chat, `[❗] ʟɪᴍɪᴛ ᴀɴᴅᴀ ʜᴀʙɪꜱ, ꜱɪʟᴀʜᴋᴀɴ ʙᴇʟɪ ᴍᴇʟᴀʟᴜɪ *${usedPrefix}buy limit*.`, m);
           continue;
         } // // <----- Jika limit habis ----->
@@ -256,7 +257,7 @@ export async function handler(m) {
   } finally {
     let user, stats = global.db.data.stats;
     if (m) {
-      if (users.number && (user = global.db.data.users[m.author || m.from])) {
+      if (users.number && (user = global.db.data.users[m.sender])) {
         user.exp += m.exp;
         user.limit -= m.limit * 1;
       }
@@ -308,6 +309,13 @@ global.dfail = (type, m, conn) => {
   }
 
 
+/*============== JANGAN DIUBAH ==============*/
+let fileP = fileURLToPath(import.meta.url)
+fs.watchFile(fileP, async () => {
+    fs.unwatchFile(fileP)
+    console.log(`Update File "${chalk.yellowBright(fileP)}"`)
+    import(`${import.meta.url}?update=${Date.now()}`)
+})
 // <----- BERKAHESPORT.ID OFC ----->>
 /* Whatsapp bot versi WAWEB ini mohon digunakan dengan bijak
 Terimakasih Untuk ALLAH S.W.T.
@@ -320,11 +328,3 @@ Collaborator : https://github.com/Leuthra/
 - Silahkan tambah disini bro...
 Jangan ubah yak mending ditambah... ^_^
 */
-
-
-let fileP = fileURLToPath(import.meta.url)
-fs.watchFile(fileP, () => {
-    fs.unwatchFile(fileP)
-    console.log(`Update File "${fileP}"`)
-    import(`${import.meta.url}?update=${Date.now()}`)
-})

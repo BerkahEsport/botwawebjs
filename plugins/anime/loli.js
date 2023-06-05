@@ -4,8 +4,7 @@ let res = await fetch('https://raw.githubusercontent.com/BerkahEsport/api-be/mai
 let json = await res.json();
 let url = json[Math.floor(Math.random() * json.length)]
 
-const media = await MessageMedia.fromUrl(url)
-await conn.sendMessage(m.from, media, {caption: ty})
+await conn.sendMessage(m.from, url, {caption: ty})
 }
 handler.command = /^(loli)$/i
 handler.tags = ['anime'] 

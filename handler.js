@@ -2,9 +2,6 @@
 // Donate: 0895371549895
 import './config.js';
 import { format } from 'util';
-import chalk from 'chalk'
-import fs from 'fs'
-import { fileURLToPath } from 'node:url';
 var isNumber = x => typeof x === 'number' && !isNaN(x);
 export async function handler(m) {
   if (!m)
@@ -196,7 +193,7 @@ export async function handler(m) {
         }
 
         m.isCommand = true;
-        m.exp = 1
+        m.exp = 0
         let xp = 'exp' in plugin ? parseInt(plugin.exp) : 3; // <----- EXP yang didapat per Command ----->
         if (xp > 200)
           m.reply('ɴɢᴇᴄɪᴛ -_-'); // // <----- Jika EXP didapat melebihi 200 ----->
@@ -306,13 +303,6 @@ global.dfail = (type, m, conn) => {
   }
 
 
-/*============== JANGAN DIUBAH ==============*/
-let fileP = fileURLToPath(import.meta.url)
-fs.watchFile(fileP, async () => {
-    fs.unwatchFile(fileP)
-    console.log(`Update File "${chalk.yellowBright(fileP)}"`)
-    import(`${import.meta.url}?update=${Date.now()}`)
-})
 // <----- BERKAHESPORT.ID OFC ----->>
 /* Whatsapp bot versi WAWEB ini mohon digunakan dengan bijak
 Terimakasih Untuk ALLAH S.W.T.

@@ -15,7 +15,7 @@ global.author = '                「 *@爪ㄖ乇乂ㄒ丨* 」'
 /*============== PERINGATAN ==============*/
 global.nsfw = 'Fitur NSFW Dimatikan\nKetik *!enable* *nsfw* untuk menggunakan fitur ini!\n“Katakanlah kepada orang laki-laki yang beriman: Hendaklah mereka menahan pandanganya, dan memelihara kemaluannya; … Katakanlah kepada wanita yang beriman: Hendaklah mereka menahan pandangannya, dan kemaluannya, dan janganlah mereka Menampakkan perhiasannya, kecuali yang (biasa) nampak dari padany,” \n(TQS. Al-Nur [24]: 30-31).'
 global.subs = 'Jangan liat doang, subscribe dulu dong.. \n https://m.youtube.com/channel/UCG_Xj6eHBMaW9HTHTya9q6w'
-global.ty = '💭 ɪɴɪ ʜᴀꜱɪʟɴʏᴀ... \nᴊᴀɴɢᴀɴ ʟᴜᴘᴀ ꜱᴜᴘᴘᴏʀᴛ ɪɢ @ʙᴇʀᴋᴀʜᴇꜱᴘᴏʀᴛ.ɪᴅ ʏᴀᴋ...  \n👍 ᴛʜᴀɴᴋꜱ ʏᴏᴜ... ^_^'
+global.ty = 'ardtdxtcyfguyvug//'//💭 ɪɴɪ ʜᴀꜱɪʟɴʏᴀ... \nᴊᴀɴɢᴀɴ ʟᴜᴘᴀ ꜱᴜᴘᴘᴏʀᴛ ɪɢ @ʙᴇʀᴋᴀʜᴇꜱᴘᴏʀᴛ.ɪᴅ ʏᴀᴋ...  \n👍 ᴛʜᴀɴᴋꜱ ʏᴏᴜ... ^_^'
 
 /*============== LOGO ==============*/
 global.thumb = 'https://telegra.ph/file/47b3652155f158b931bda.jpg' //Main Thumbnail
@@ -50,11 +50,11 @@ global.prefix = '.'
 
 global.RestAPI = {
   xnzsenpai: { 
-  facebook: 'https://xznsenpai.xyz/api/download?url=',
-  instagram: 'https://xznsenpai.xyz/api/igdl?url=',
-  twitter: 'https://xznsenpai.xyz/api/twitterdl?url=',
-  youtube: 'https://xznsenpai.xyz/api/y2mate?url=',
-  tiktok: 'https://xznsenpai.xyz/api/tiktok?url='
+  facebook: 'https://xzn.wtf/api/download?url=',
+  instagram: 'https://xzn.wtf/api/igdl?url=',
+  twitter: 'https://xzn.wtf/api/twitterdl?url=',
+  youtube: 'https://xzn.wtf/api/y2mate?url=',
+  tiktok: 'https://xzn.wtf/api/tiktok?url='
 
 }
 
@@ -68,8 +68,6 @@ fs.watchFile(fileP, async () => {
     console.log(`Update File "${chalk.yellowBright(fileP)}"`)
     import(`${import.meta.url}?update=${Date.now()}`)
 })
-
-
 // <----- BERKAHESPORT.ID OFC ----->>
 /* Whatsapp bot versi WAWEB ini mohon digunakan dengan bijak
 Terimakasih Untuk ALLAH S.W.T.

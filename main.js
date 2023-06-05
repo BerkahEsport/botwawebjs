@@ -11,6 +11,8 @@ Collaborator : https://github.com/Leuthra/
 - Silahkan tambah disini bro...
 Jangan ubah yak mending ditambah... ^_^
 */
+
+import './config.js'
 import path, { join } from 'path'
 import { platform } from 'process'
 import { fileURLToPath, pathToFileURL } from 'url'
@@ -72,11 +74,6 @@ async function ClientConnect() {
 
 
 conn.initialize();
-// <----- Menghubungkan koneksi WAWEB ----->
-conn.on('loading_screen', (percent, message) => {
-    console.log(yellow(`Mengubungkan, membuka situs... Berjalan: ${red(percent)} % \n${message}`));
-});
-
 // <----- Membuat QR untuk di scan Perangkat tertaut ----->
 conn.on('qr', qr => {
     qrcode.generate(qr, { small: true });
@@ -89,19 +86,6 @@ conn.on('ready', async () => {
     if (global.db.data == null) await loadDatabase();
     console.log(green("Klien bot sudah siap!!")); // Code dibawah buat info bot ini berjalan sukses...
     await conn.sendMessage("62895375950107@c.us", `${JSON.stringify(conn.info)}`)
-  });
-  conn.on("call", console.log);
-
-  conn.on('group_join', async (join) => {
-      // buat wellcome disini
-  });
-
-  conn.on('group_leave', async (join) => {
-      // respon leave disini
-  });
-
-  conn.on('group_admin_changed', async (gc) => {
-      console.log(gc)
   });
 
 conn.on('message_create', handler.handler.bind(conn));

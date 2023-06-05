@@ -1,14 +1,14 @@
 let handler = async (m, { text }) => {
-    let packname = text.split('|')[0] ? text.split('|')[0] : global.sticker.packname
-    let author = text.split('|')[1] ? text.split('|')[1] : global.sticker.author
-    let q = m.hasQuotedm ? await m.getQuotedMessage() : m
+    let packname = text.split('|')[0] ? text.split('|')[0] : 'BERKAHESPORT.ID'
+    let author = text.split('|')[1] ? text.split('|')[1] : '@moexti'
+    let q = m.hasQuotedMsg ? await m.quoted : m
     var isMedia = q.hasMedia && q.type.includes('image') || q.hasMedia && q.type.includes('video') || q.hasMedia && q.type.includes('gif');
     if (isMedia) {
         m.react("⏳");
         var media = await q.downloadMedia();
         if (media) {
             m.react("✅");
-            await m.reply(media, undefined, { sendMediaAsSticker: true, stickerName: packname, stickerAuthor: author });
+            conn.sendMessage(m.from, media, { asSticker: true, quoted: m })
         } else {
             m.react("⚠️");
             m.reply("Gagal, silahkan hubungi owner..!");

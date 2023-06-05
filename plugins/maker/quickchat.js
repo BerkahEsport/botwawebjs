@@ -1,19 +1,19 @@
 import axios from "axios"
-import func from "../lib/func.js"
-import { UploadFileUgu } from "../lib/converter.js"
+import func from "../../lib/func.js"
+import { UploadFileUgu } from "../../lib/converter.js"
 let handler = async (m, { args, usedPrefix, command }) => {
 let [a, b] = m.text.split`|`
 let media, reply
  if (m.isMedia) {
      let fileName = await func.getRandom(`${m.mime?.split("/")[1]}`)
     let upload = await UploadFileUgu(await m.downloadMedia(fileName))
-     media = { media: { url: thumb } }
-     fs.unlinkSync(`./tmp/${fileName}`)
+     media = { media: { url: upload } }
+     //fs.unlinkSync(`./tmp/${fileName}`)
  }
 if (b && m.sender) {
     reply = {
         name: await (await conn.getContactById(m.sender)).pushname,
-        text: (b == "q") ? m.body.replace(usedPrefix+command, "") : b,
+        text: (b == "q") ? m.body.replace(usedPrefix+command, "") : m.quoted.body,
         chatId: 5,
         id: 5
     }

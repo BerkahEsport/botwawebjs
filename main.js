@@ -11,9 +11,6 @@ Collaborator : https://github.com/Leuthra/
 - Silahkan tambah disini bro...
 Jangan ubah yak mending ditambah... ^_^
 */
-
-import './config.js'
-import './handler.js'
 import path, { join } from 'path'
 import { platform } from 'process'
 import { fileURLToPath, pathToFileURL } from 'url'
@@ -68,7 +65,7 @@ async function ClientConnect() {
     },
     markOnlineAvailable: true,
     qrMaxRetries: 6,
-    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
+    userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15',
     takeoverTimeoutMs: 'Infinity',
     clearSessions: true
 });

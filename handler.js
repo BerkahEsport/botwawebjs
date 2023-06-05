@@ -1,9 +1,6 @@
 // Yang jual SC ini gw doain hidup sengsara. SC ini gw bagiin gratis jangan diperjualbelikan.
 // Donate: 0895371549895
-
-
 import './config.js';
-import './main.js'
 import { format } from 'util';
 import chalk from 'chalk'
 import fs from 'fs'

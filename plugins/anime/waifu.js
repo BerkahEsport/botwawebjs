@@ -1,8 +1,9 @@
 import fetch from 'node-fetch'
 let handler = async (m, { conn, text }) => {
-let res = await fetch('https://raw.githubusercontent.com/BerkahEsport/api-be/main/lib/anime/sfw/waifu.json')
+let res = await fetch('https://raw.githubusercontent.com/Fokusdotid/Family-MD/main/api/waifu.json')
 let json = await res.json();
 let url = json[Math.floor(Math.random() * json.length)]
+
 
 await conn.sendMessage(m.from, url, {caption: ty})
 }
@@ -11,3 +12,4 @@ handler.tags = ['anime']
 handler.help = ['waifu']
 // handler.register = true
 export default handler
+

@@ -2,7 +2,12 @@
 // Donate: 0895371549895
 import './config.js';
 import { format } from 'util';
+import { fileURLToPath } from 'url';
+import fs from 'fs';
+import esm from 'esm';
+import chalk from 'chalk'
 var isNumber = x => typeof x === 'number' && !isNaN(x);
+
 export async function handler(m) {
   if (!m)
     return;
@@ -281,7 +286,9 @@ export async function handler(m) {
     }
     // Hasil dilihat pada console.log
     await (await import(`./lib/print.js`)).default(conn, m)
+
   }
+
 }
 
 global.dfail = (type, m, conn) => {
@@ -301,8 +308,17 @@ global.dfail = (type, m, conn) => {
     }[type];
     if (msg) return conn.sendMessage(m.from, gambar ,{caption: msg}) 
   }
-
-
+  function reload(file) {
+    const {reload} = esm(file)
+    return reload
+  }
+  
+  let fileP = fileURLToPath(import.meta.url)
+  fs.watchFile(fileP, async () => {
+      fs.unwatchFile(fileP)
+      console.log(`Update File "${chalk.yellowBright(fileP)}"`)
+      reload(import(`${import.meta.url}?update=${Date.now()}`))
+  })
 // <----- BERKAHESPORT.ID OFC ----->>
 /* Whatsapp bot versi WAWEB ini mohon digunakan dengan bijak
 Terimakasih Untuk ALLAH S.W.T.

@@ -1,7 +1,6 @@
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
 # BOTWAWEBJS BASE (ESM)
 
-<a href="https://visitor-badge.glitch.me/badge?page_id=raselcomel/mymd"><img title="Visitor" src="https://visitor-badge.glitch.me/badge?page_id=BerkahEsport/botwawebjs"></a>
 <a href="https://github.com/BerkahEsport/botwawebjs/network/members"><img title="Forks" src="https://img.shields.io/github/forks/BerkahEsport/botwawebjs?label=Forks&color=blue&style=flat-square"></a>
 <a href="https://github.com/BerkahEsport/botwawebjs/watchers"><img title="Watchers" src="https://img.shields.io/github/watchers/BerkahEsport/botwawebjs?label=Watchers&color=green&style=flat-square"></a>
 <a href="https://github.com/BerkahEsport/botwawebjs/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/BerkahEsport/botwawebjs?label=Stars&color=yellow&style=flat-square"></a>

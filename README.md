@@ -1,46 +1,47 @@
-<!DOCTYPE html>
-<html lang="id">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="About Web" />
-    <meta name="author" content="@moexti" />
-    <meta content='#007FFF' name='theme-color'/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <base target="_blank"/>
-    <div class="container">
-      <img align="center" src="https://komarev.com/ghpvc/?username=BerkahEsport&color=brightgreen&style=plastic&label=%F0%9F%91%80+Dilihat: "> <br/>
-      <a class="navbar-brand fw-bold" href="https://wa.me/62895375950107">Chat OWNER</a>
-      <a class="navbar-brand fw-bold" href="https://wa.me/6289649672623?text=.menu"><br/>Chat BOT (Aktif)</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <div class="container-fluid">
-    <div class="card m-3 text-center shadow">
-      <h2 class="card-header shadow-sm bg-primary text-white">BERKAHESPORT.ID OFFICIAL</h2>
-      <div class="card-body">
-      <div class="text-center">
-        <img src="https://i.ibb.co/VQQ68JS/berkahesport.jpg" class="rounded-circle shadow mb-3" alt="Space" width="150px" height="150px">
-      </div>
-        <p class="card-text text-shadow">
-        Terimakasih Untuk <b>ALLAH S.W.T.</b><br/>Serta junjungan kami nabi Muhammad S.A.W</p>
-WhatsappBOT ini menggunakan whatsapp-web.js bukan Baileys.
-<br/>Silahkan di fork dan jangan lupa stars.nya ya bro...
-<br/>Kalo mau kerjasama membangun ini base boleh...
-<br/>Saya juga masih pemula & masih belajar.
-<br/>Semoga base ini bisa bermanfaat.
-<br/>[🚫ALERT🚫] 
-<br/>Script ini dibuat sendiri dan masih tahap perkembangan. <br/>Bukan sc Recode!!!
-<br/><br/> ©Credit: @moexti
-        <br/> ©Collab: @Leuthra
-      </div>
-    </div>
-  </div>
-  </body>
-</html>
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
+# BOTWAWEBJS BASE (ESM)
+
+<a href="https://visitor-badge.glitch.me/badge?page_id=raselcomel/mymd"><img title="Visitor" src="https://visitor-badge.glitch.me/badge?page_id=BerkahEsport/botwawebjs"></a>
+<a href="https://github.com/BerkahEsport/botwawebjs/network/members"><img title="Forks" src="https://img.shields.io/github/forks/BerkahEsport/botwawebjs?label=Forks&color=blue&style=flat-square"></a>
+<a href="https://github.com/BerkahEsport/botwawebjs/watchers"><img title="Watchers" src="https://img.shields.io/github/watchers/BerkahEsport/botwawebjs?label=Watchers&color=green&style=flat-square"></a>
+<a href="https://github.com/BerkahEsport/botwawebjs/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/BerkahEsport/botwawebjs?label=Stars&color=yellow&style=flat-square"></a>
+<a href="https://github.com/BerkahEsport/botwawebjs/graphs/contributors"><img title="Contributors" src="https://img.shields.io/github/contributors/BerkahEsport/botwawebjs?label=Contributors&color=blue&style=flat-square"></a>
+<a href="https://github.com/BerkahEsport/botwawebjs/issues"><img title="Issues" src="https://img.shields.io/github/issues/BerkahEsport/botwawebjs?label=Issues&color=success&style=flat-square"></a>
+<a href="https://github.com/BerkahEsport/botwawebjs/issues?q=is%3Aissue+is%3Aclosed"><img title="Issues" src="https://img.shields.io/github/issues-closed/BerkahEsport/botwawebjs?label=Issues&color=red&style=flat-square"></a>
+<a href="https://github.com/BerkahEsport/botwawebjs/pulls"><img title="Pull Request" src="https://img.shields.io/github/issues-pr/BerkahEsport/botwawebjs?label=PullRequest&color=success&style=flat-square"></a>
+<a href="https://github.com/BerkahEsport/botwawebjs/pulls?q=is%3Apr+is%3Aclosed"><img title="Pull Request" src="https://img.shields.io/github/issues-pr-closed/BerkahEsport/botwawebjs?label=PullRequest&color=red&style=flat-square"></a>
+
+
+## UNTUK PENGGUNA WINDOWS/VPS/RDP
+
+* Unduh & Instal Git [`Klik Disini`](https://git-scm.com/downloads)
+* Unduh & Instal NodeJS [`Klik Disini`](https://nodejs.org/en/download)
+* Unduh & Instal FFmpeg [`Klik Disini`](https://ffmpeg.org/download.html) (**Jangan Lupa Tambahkan FFmpeg ke variabel lingkungan PATH**)
+* Unduh & Instal ImageMagick [`Klik Disini`](https://imagemagick.org/script/download.php)
+
+```bash
+git clone https://github.com/BerkahEsport/botwawebjs.git
+cd botwawebjs 
+npm i
+npm start
+```
+
+# example cmd
+```
+dibawah ini adalah command untuk send Message,
+options bisa ditambahkan dengan asSticker dll yang ada di docs mywajs
+
+conn.reply(m.from, 'teks', m) \\reply pesan
+conn.sendMessage(m.from, 'teks', {quoted: m, options})
+```
+
+---------
+
+<a href="https://github.com/BerkahEsport"><img src="https://github.com/BerkahEsport.png" width="100" height="100"></a> | <a href="https://github.com/Leuthra"><img src="https://github.com/Leuthra.png" width="100" height="100"></a> | [![Amirul](https://github.com/amiruldev20.png?size=100)](https://github.com/amiruldev20) | <a href="https://xzn.wtf/"><img src="https://xzn.wtf/img/user.jpg" width="100" height="100"></a> 
+----|----|----|-----
+[moexti](https://github.com/BerkahEsport) | [Rominaru](https://github.com/Leuthra) | [amiruldev20](https://github.com/amiruldev20) | [XznSenpai](https://xzn.wtf/)
+Penyedia Base | Most Active Contributor | Penyedia Library MYWAJS | Penyedia Rest Api
+
+----------
+# note
+base ini akan terus dikembangkan oleh developer maupun contributor yang ada

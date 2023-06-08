@@ -1,20 +1,20 @@
 let handler = async (m, { args, usedPrefix, command, text }) => {
-	if (!args) return m.reply(`${usedPrefix + command} link`); // Jika tidak ada teks maka kamu jawab apa?
-    m.reply(`Berhasil dijawab...`) // Jawab dari bot bentuk teks.
-	conn.sendMessage(m.chat, 'https://telegra.ph/file/a46ab7fa39338b1f54d5a.mp4', { quoted: m}) // Jawab dari bot bentuk Gambar / Video.
+	//if (!text) return m.reply(`${usedPrefix + command} link`); // Jika tidak ada teks maka kamu jawab apa?
+    // <===== PESAN =====>
+	m.reply(`Berhasil dijawab...`) // Jawab dari bot bentuk teks.
+	conn.reply(m.chat, 'Pesan dengan tujuan nomor tertentu berhasil...', m)
+	conn.sendFile(m.chat, thumb, '', 'Logo *berkahesport.id* ...', m) // Mengirim gambar/video beserta teks...
+	conn.sendAd(m.chat, thumb, '*AD Reply* berhasil dibuat...', m) // Untuk mengirim pesan AdReply
 	
 	
-
-	// <===== Buat Test JSON file ====>
-	let json = { "code":0,
-	"msg":"success",
-	"processed_time":0.3122,
-	"data": {"id":"7189917930761506075",
-	"region":"ID","title":"",
-	"cover":"https://p16-sign-va.tiktokcdn.com/obj/tos-useast2a-p-0037-aiso/10b2f36b59d34da9bd06c10d19c32301_1674033227?x-expires=1685408400&x-signature=oGoD0Yu9v0i53fM4LFZJyPDCHF8%3D&s=AWEME_DETAIL&se=false&sh=&sc=dynamic_cover&l=202305290157360D50707B071C52778564"}}
+	// <===== Buat Test JSON file (REST API) ====>
+	let json = 'https://cataas.com/cat?json=true'
 	conn.json(m.chat, json) // Untuk melihat file json menjadi teks...
 
-	conn.sendAd(m.chat, thumb, ty, m) // Untuk mengirim pesan AdReply
+
+	// <===== DEFAULT PESAN =====>
+	//conn.sendMessage('nomor tujuan (@c.us)', 'link gambar/video', { caption: 'Teks disini', quoted: m})
+	conn.sendMessage(m.chat, 'https://telegra.ph/file/a46ab7fa39338b1f54d5a.mp4', { caption: 'Video berhasil dikirim...', quoted: m})
 }
 
 handler.help = [''] // Jika diisi maka di menu bot akan tampil, samakan dengan handler.command ya.

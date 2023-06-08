@@ -49,7 +49,7 @@ global.prefix = '.'
 /*============== SITUS REST API ==============*/
 
 global.RestAPI = {
-  xnzsenpai: { 
+  xzn: { apikey: 'masukkanapikeymudisini', // Minta wa.me/6282256080304
   facebook: 'https://xzn.wtf/api/download?url=',
   instagram: 'https://xzn.wtf/api/igdl?url=',
   twitter: 'https://xzn.wtf/api/twitterdl?url=',

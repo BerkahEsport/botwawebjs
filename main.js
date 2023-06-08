@@ -89,8 +89,12 @@ conn.on('ready', async () => {
   });
 
 conn.on('message_create', handler.handler.bind(conn));
+
+  return conn
 }
 ClientConnect().catch(e => console.error(e))
+
+
 
 // Created by @moexti
 const pluginFolder = global.__dirname(join(__dirname, './plugins/index'))
@@ -126,6 +130,6 @@ setInterval(async () =>{
 let fileP = fileURLToPath(import.meta.url)
 fs.watchFile(fileP, async () => {
     fs.unwatchFile(fileP)
-    console.log(`Update File "${chalk.yellowBright(fileP)}"`)
+    console.log(`Update File "${yellow(fileP)}"`)
     import(`${import.meta.url}?update=${Date.now()}`)
 })

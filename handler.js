@@ -4,7 +4,6 @@ import './config.js';
 import { format } from 'util';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
-import esm from 'esm';
 import chalk from 'chalk'
 var isNumber = x => typeof x === 'number' && !isNaN(x);
 
@@ -19,8 +18,8 @@ export async function handler(m) {
   let users = await m.getContact();
   try {
     m.chat = m.from// .endsWith("@g.us") ? m.author : m.from // Buat tambahan aja.
-    //  <----- Fungsi Database -----> Tambahin sendiri jika perlu.
     try {
+    //  <----- Fungsi Database -----> Tambahin sendiri jika perlu.
       let user = global.db.data.users[m.sender];
       if (typeof user !== 'object')
         global.db.data.users[m.sender] = {};
@@ -308,16 +307,13 @@ global.dfail = (type, m, conn) => {
     }[type];
     if (msg) return conn.sendMessage(m.from, gambar ,{caption: msg}) 
   }
-  function reload(file) {
-    const {reload} = esm(file)
-    return reload
-  }
+ 
   
   let fileP = fileURLToPath(import.meta.url)
   fs.watchFile(fileP, async () => {
       fs.unwatchFile(fileP)
       console.log(`Update File "${chalk.yellowBright(fileP)}"`)
-      reload(import(`${import.meta.url}?update=${Date.now()}`))
+  import(`${import.meta.url}?update=${Date.now()}`)
   })
 // <----- BERKAHESPORT.ID OFC ----->>
 /* Whatsapp bot versi WAWEB ini mohon digunakan dengan bijak

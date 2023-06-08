@@ -9,12 +9,12 @@ const require = createRequire(import.meta.url)
 const depen = fs.readFileSync('./package.json')
 
 
-
 let tags = {
   'main': 'MENU UTAMA',
   'anime': 'ANIME',
   'downloader': 'UNDUHAN',
   'group': 'GROUP',
+  'maker': 'MAKER',
   'tools': "PERALATAN",
   'info': 'INFO',
   'owner': 'OWNER BOT',
@@ -125,7 +125,7 @@ let handler = async (m, { conn, usedPrefix: _p, users }) => {
       readmore: readMore
     }
     _text = _text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    m.reply(_text.trim())
+   conn.sendAd(m.chat, thumb, _text.trim(), m)
   } catch (e) {
     m.reply('Maaf, menu sedang error')
     throw e

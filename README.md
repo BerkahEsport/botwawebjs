@@ -1,5 +1,5 @@
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
-# BOTWAWEBJS BASE (ESM)
+# ミ★ 𝘉𝘖𝘛𝘞𝘈𝘞𝘌𝘉𝘑𝘚 𝘉𝘈𝘚𝘌 (𝘌𝘚𝘔) ★彡
 
 <a href="https://github.com/BerkahEsport/botwawebjs/network/members"><img title="Forks" src="https://img.shields.io/github/forks/BerkahEsport/botwawebjs?label=Forks&color=blue&style=flat-square"></a>
 <a href="https://github.com/BerkahEsport/botwawebjs/watchers"><img title="Watchers" src="https://img.shields.io/github/watchers/BerkahEsport/botwawebjs?label=Watchers&color=green&style=flat-square"></a>
@@ -11,7 +11,7 @@
 <a href="https://github.com/BerkahEsport/botwawebjs/pulls?q=is%3Apr+is%3Aclosed"><img title="Pull Request" src="https://img.shields.io/github/issues-pr-closed/BerkahEsport/botwawebjs?label=PullRequest&color=red&style=flat-square"></a>
 
 
-## UNTUK PENGGUNA WINDOWS/VPS/RDP
+## ★彡[ᴜɴᴛᴜᴋ ᴘᴇɴɢɢᴜɴᴀ ᴡɪɴᴅᴏᴡꜱ/ᴠᴘꜱ/ʀᴅᴘ]彡★
 
 * Unduh & Instal Git [`Klik Disini`](https://git-scm.com/downloads)
 * Unduh & Instal NodeJS [`Klik Disini`](https://nodejs.org/en/download)
@@ -25,22 +25,23 @@ npm i
 npm start
 ```
 
-# example cmd
+# ★彡[ᴇxᴀᴍᴘʟᴇ ᴄᴍᴅ]彡★
 ```
-dibawah ini adalah command untuk send Message,
-options bisa ditambahkan dengan asSticker dll yang ada di docs mywajs
+Dibawah ini adalah command untuk send Message,
+options bisa ditambahkan dengan asSticker dll yang ada di docs mywajs.
 
+m.reply('teks') \\reply pesan
 conn.reply(m.from, 'teks', m) \\reply pesan
 conn.sendMessage(m.from, 'teks', {quoted: m, options})
 ```
 
 ---------
 
-<a href="https://github.com/BerkahEsport"><img src="https://github.com/BerkahEsport.png" width="100" height="100"></a> | <a href="https://github.com/Leuthra"><img src="https://github.com/Leuthra.png" width="100" height="100"></a> | [![Amirul](https://github.com/amiruldev20.png?size=100)](https://github.com/amiruldev20) | <a href="https://xzn.wtf/"><img src="https://xzn.wtf/img/user.jpg" width="100" height="100"></a> 
+<a href="https://github.com/BerkahEsport"><img src="https://raw.githubusercontent.com/BerkahEsport/api-be/main/tmp/gmbr/logo2.png" width="100" height="100"></a> | <a href="https://github.com/Leuthra"><img src="https://github.com/Leuthra.png" width="100" height="100"></a> | [![Amirul](https://github.com/amiruldev20.png?size=100)](https://github.com/amiruldev20) | <a href="https://xzn.wtf/"><img src="https://xzn.wtf/img/user.jpg" width="100" height="100"></a> 
 ----|----|----|-----
 [moexti](https://github.com/BerkahEsport) | [Rominaru](https://github.com/Leuthra) | [amiruldev20](https://github.com/amiruldev20) | [XznSenpai](https://xzn.wtf/)
 Penyedia Base | Most Active Contributor | Penyedia Library MYWAJS | Penyedia Rest Api
 
 ----------
-# note
-base ini akan terus dikembangkan oleh developer maupun contributor yang ada
+# ★彡[ɴᴏᴛᴇ]彡★
+Base ini akan terus dikembangkan oleh developer maupun contributor yang ada.

@@ -5,12 +5,12 @@ import { format } from 'util';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
 import chalk from 'chalk'
-import { serialize } from './lib/simple.js';
+import { smsg } from './lib/simple.js';
 var isNumber = x => typeof x === 'number' && !isNaN(x);
 
 export async function handler(m) {
   if (!m) return;
-  await serialize(conn, m);
+  await smsg(conn, m);
   let chats = await m.getChat();
   let users = await m.getContact();
   try {

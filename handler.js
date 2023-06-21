@@ -5,19 +5,15 @@ import { format } from 'util';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
 import chalk from 'chalk'
+import { serialize } from './lib/simple.js';
 var isNumber = x => typeof x === 'number' && !isNaN(x);
 
 export async function handler(m) {
-  if (!m)
-    return;
+  if (!m) return;
+  await serialize(conn, m);
   let chats = await m.getChat();
-  
-  //jangan didelete ya mas nanti error
-  function _0x1b2f(){var _0x306704=['230389jffSSX','32030TDpuyi','serialize','2088500qIPVXT','1996022PpHzgi','1755440PgaEfc','2QeCbmY','1137186QeWJQY','24MKKsau','1926tCZXFj','4228444mxsGLp','./lib/simple.js'];_0x1b2f=function(){return _0x306704;};return _0x1b2f();}var _0x5d686a=_0x1d78;function _0x1d78(_0x44486f,_0x96680f){var _0x1b2fe6=_0x1b2f();return _0x1d78=function(_0x1d78fb,_0x3f8495){_0x1d78fb=_0x1d78fb-0x1bf;var _0x5bf0ea=_0x1b2fe6[_0x1d78fb];return _0x5bf0ea;},_0x1d78(_0x44486f,_0x96680f);}(function(_0x4b957f,_0x47cd47){var _0x2afd54=_0x1d78,_0x254f1a=_0x4b957f();while(!![]){try{var _0x3df4ac=-parseInt(_0x2afd54(0x1ca))/0x1+-parseInt(_0x2afd54(0x1c4))/0x2*(parseInt(_0x2afd54(0x1c5))/0x3)+parseInt(_0x2afd54(0x1c8))/0x4+parseInt(_0x2afd54(0x1c1))/0x5+parseInt(_0x2afd54(0x1c6))/0x6*(-parseInt(_0x2afd54(0x1c2))/0x7)+parseInt(_0x2afd54(0x1c3))/0x8+-parseInt(_0x2afd54(0x1c7))/0x9*(-parseInt(_0x2afd54(0x1bf))/0xa);if(_0x3df4ac===_0x47cd47)break;else _0x254f1a['push'](_0x254f1a['shift']());}catch(_0x2c4fed){_0x254f1a['push'](_0x254f1a['shift']());}}}(_0x1b2f,0x99b90),await(await import(_0x5d686a(0x1c9)))[_0x5d686a(0x1c0)](conn,m));
-  
   let users = await m.getContact();
   try {
-    m.chat = m.from// .endsWith("@g.us") ? m.author : m.from // Buat tambahan aja.
     try {
     //  <----- Fungsi Database -----> Tambahin sendiri jika perlu.
       let user = global.db.data.users[m.sender];

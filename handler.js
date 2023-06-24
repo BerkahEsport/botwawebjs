@@ -3,6 +3,7 @@
 import './config.js';
 import { format } from 'util';
 import { fileURLToPath } from 'url';
+import path from 'path';
 import fs from 'fs';
 import chalk from 'chalk'
 import { smsg } from './lib/simple.js';
@@ -96,12 +97,14 @@ export async function handler(m) {
     let isAdmin = isGroup ? AdminFilter.map(v => v.replace(/[^0-9]/g, '') + '@c.us').includes(m.author ? m.author : m.from) : '';
     let isBotAdmin = isGroup ? AdminFilter.map(v => v.replace(/[^0-9]/g, '') + '@c.us').includes(conn.info.me._serialized) : '';
     const isPrems = isROwner || global.db.data.users[m.sender].premium == true;
+    const ___dirname = path.join(path.dirname(fileURLToPath(import.meta.url)), './plugins')
+    const dirFilter = fs.readdirSync(___dirname, { withFileTypes: true }).filter((v) => v.isDirectory());
     // Untuk menjalankan plugin prefix dan cmd kamu
     let usedPrefix;
     for (let name in global.plugins) {
       let plugin = global.plugins[name];
-      if (!plugin)
-        continue;
+      if (!plugin) continue;
+      //const __filename = dirFilter.map( name => fs.readdirSync(path.join(dirFilter, name)))
       const str2Regex = (str) => str.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&");
       let _prefix = plugin.customPrefix ? plugin.customPrefix : /./ //conn.prefix ? conn.prefix : global.prefix;
       let match = (
@@ -135,7 +138,7 @@ export async function handler(m) {
           isPrems,
           m,
           __dirname: ___dirname,
-          __filename
+          //__filename
         })) continue;
       }
       if (typeof plugin !== 'function') continue;

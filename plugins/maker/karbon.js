@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 let handler = async (m, { text, usedPrefix, command }) => {
-    const code = m.hasQuotedMsg ? m._data.quotedMsg.body : text
+    const code = m.hasQuotedMsg ? m.quoted.text : text
     if (!code) return m.reply(`Input Code:\n${usedPrefix + command} console.log('BerkahEsport.ID')`);
     let carbon = await generateCarbon(code)
     if (carbon.status !== 200) return m.reply(`${carbon.status} ${carbon.statusText}`);

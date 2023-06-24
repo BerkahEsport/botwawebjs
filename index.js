@@ -1,7 +1,4 @@
-console.log('🐾 Dimulai...')
-
 import { join, dirname } from 'path'
-import { createRequire } from "module";
 import { fileURLToPath } from 'url'
 import { setupMaster, fork } from 'cluster'
 import { watchFile, unwatchFile } from 'fs'
@@ -10,19 +7,13 @@ import { createInterface } from 'readline'
 import yargs from 'yargs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const require = createRequire(__dirname) // Bring in the ability to create the 'require' method
 const { say } = cfonts
 const rl = createInterface(process.stdin, process.stdout)
 
-say('BERKAHESPORT.ID', {
+say('BOTWAWEBJS', {
   font: 'block',
   align: 'center',
-  colors: ['yellow']
-})
-say(`BOT WhatsappWeb oleh @moexti`, {
-  font: 'simple',
-  align: 'center',
-  colors: ['white']
+  gradient: ['#FFA500', 'yellow']
 })
 
 var isRunning = false
@@ -37,7 +28,7 @@ function start(file) {
   say([process.argv[0], ...args].join(' '), {
     font: 'console',
     align: 'center',
-    colors: ['red']
+    colors: ['white']
   })
 
   setupMaster({

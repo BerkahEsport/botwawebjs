@@ -9,7 +9,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const io = new Server(server);
 
 
-function connect(conn, PORT) {
+export function cconnect(conn, PORT) {
 	app.get('/', (req, res) => {
  res.sendFile(__dirname + '/index.html');
 });
@@ -28,5 +28,3 @@ server.listen(PORT, () => {
  // console.log('listening on *:3000');
 });
 }
-
-export default connect

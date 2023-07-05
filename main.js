@@ -34,7 +34,8 @@ import { format } from 'util'
 import pkg from 'chalk';
 const { red, green, yellow, cyan, magenta, yellowBright } = pkg;
 let handler = await import('./handler.js')
-
+const { cconnect } = await import("./server.js");
+const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
 global.db = new Low(
     new JSONFile('database.json')
   )
@@ -72,7 +73,7 @@ async function ClientConnect() {
     clearSessions: true
 });
 
-
+await cconnect(conn, PORT);
 conn.initialize();
 // <----- Membuat QR untuk di scan Perangkat tertaut ----->
 conn.on('qr', qr => {

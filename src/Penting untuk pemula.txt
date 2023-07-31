@@ -1,0 +1,23 @@
+Perlu diingat ini base script code bot hanya bisa 
+berjalan di Panel yang support Playwright Chromium. 
+Jika kamu memakai termux tidak akan bekerja kecuali 
+jika termux dipakai untuk membuka panelmu baru bisa 
+digunakan script bot ini.
+
+Ini base jangan diubah2 dulu selain menambah plugins baru jika tidak mengerti.
+
+Jika kamu pemula, hal yang perlu kamu ganti hanyalah di bagian config.js
+
+Jika kamu edit selain itu dan malah error ya kesalahanmu sendiri.
+
+Karena base ini sudah teruji dan aman dipakai tanpa ada kendala.
+
+Selamat memakai dan semoga membantu & bermanfaat.
+
+
+
+Salam dari:
+
+OWNER BERKAHESPORT.ID
+
+^_^

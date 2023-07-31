@@ -1,7 +1,7 @@
-import { join, dirname } from 'path'
-import { fileURLToPath } from 'url'
+import { join, dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { setupMaster, fork } from 'cluster'
-import { watchFile, unwatchFile } from 'fs'
+import { watchFile, unwatchFile } from 'node:fs'
 import cfonts from 'cfonts';
 import { createInterface } from 'readline'
 import yargs from 'yargs'
@@ -52,12 +52,13 @@ function start(file) {
   p.on('exit', (_, code) => {
     isRunning = false
     console.error('[❗] Keluar kode:', code)
-    if (code === null) return
-    watchFile(args[0], () => {
-      unwatchFile(args[0])
-      start(file)
+    if (code !== 0) start("main.js")
+		watchFile(args[0], () => {
+			unwatchFile(args[0])
+			start("main.js")
+		})
     })
-  })
+  
   let opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
   if (!opts['test'])
     if (!rl.listenerCount()) rl.on('line', line => {

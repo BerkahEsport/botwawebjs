@@ -1,0 +1,19 @@
+Terimakasih Untuk ALLAH S.W.T.
+Serta junjungan kami nabi Muhammad S.A.W
+
+WhatsappBOT ini menggunakan whatsapp-web.js bukan Baileys.
+Dengan module ESM agar lebih mudah & efisien.
+Silahkan di fork dan jangan lupa stars.nya ya bro...
+Kalo mau kerjasama membangun ini base boleh...
+Saya juga masih pemula & masih belajar.
+Semoga base ini bisa bermanfaat.
+[🚫ALERT🚫]
+Script ini dibuat sendiri dan akan terus di update mengikuti alur Mywajs.
+Jika ingin tanya bisa gabung di group dibawah ini:
+https://chat.whatsapp.com/JKdIWr5fj990Ux2oqTjTo5
+
+Bukan sc Recode!!!
+
+©Credit: @moexti
+Kolaborator: @romiDev
+Lib Mywajs: @amirulDev

@@ -11,6 +11,8 @@ Jika kamu pemula, hal yang perlu kamu ganti hanyalah di bagian config.js
 Jika kamu edit selain itu dan malah error ya kesalahanmu sendiri.
 
 Karena base ini sudah teruji dan aman dipakai tanpa ada kendala.
+Dan fitur plugins ini tidak semuanya di publish.
+Silahkan berkreasi membuat plugins.
 
 Selamat memakai dan semoga membantu & bermanfaat.
 

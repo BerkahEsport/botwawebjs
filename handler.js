@@ -35,84 +35,10 @@ export async function handler(m) {
         if (!isNumber(user.limit)) user.limit = 10;
         if (!isNumber(user.lastclaim)) user.lastclaim = 0;
         if (!isNumber(user.money)) user.money = 0;
-        //Alat-Alat
-        if (!isNumber(user.armor)) user.armor = 0;
-        if (!isNumber(user.armordurability)) user.armordurability = 0;
-        if (!isNumber(user.sword)) user.sword = 0;
-        if (!isNumber(user.sworddurability)) user.sworddurability = 0;
-        if (!isNumber(user.pickaxe)) user.pickaxe = 0;
-        if (!isNumber(user.pickaxedurability)) user.pickaxedurability = 0;
-        if (!isNumber(user.fishingrod)) user.fishingrod = 0;
-        if (!isNumber(user.fishingroddurability)) user.fishingroddurability = 0;
-        if (!isNumber(user.senapan)) user.senapan = 0;
-        if (!isNumber(user.senapandurability)) user.senapandurability = 0;
-        //Tempat
-        if (!isNumber(user.ojek)) user.ojek = 0;
-        if (!isNumber(user.bank)) user.bank = 0;
-        if (!isNumber(user.rumahsakit)) user.rumahsakit = 0;
-        if (!isNumber(user.fortress)) user.fortress = 0;
-        if (!isNumber(user.troopcamp)) user.troopcamp = 0;
-        //BahanAlam
-        if (!isNumber(user.gold)) user.gold = 0;
-        if (!isNumber(user.diamond)) user.diamond = 0;
-        if (!isNumber(user.iron)) user.iron = 0;
-        if (!isNumber(user.batu)) user.batu = 0;
-        if (!isNumber(user.kayu)) user.kayu = 0;
-        if (!isNumber(user.string)) user.string = 0;
-
-        //Buahbuahan
-        if (!isNumber(user.anggur)) user.anggur = 0;
-        if (!isNumber(user.jeruk)) user.jeruk = 0;
-        if (!isNumber(user.mangga)) user.mangga = 0;
-        if (!isNumber(user.apel)) user.apel = 0;
-        if (!isNumber(user.pisang)) user.pisang = 0;
-        if (!isNumber(user.bibitanggur)) user.bibitanggur = 0;
-        if (!isNumber(user.bibitjeruk)) user.bibitjeruk = 0;
-        if (!isNumber(user.bibitmangga)) user.bibitmangga = 0;
-        if (!isNumber(user.bibitapel)) user.bibitapel = 0;
-        if (!isNumber(user.bibitpisang)) user.bibitpisang = 0;
-        if (!isNumber(user.gardenboxs)) user.gardenboxs = 0;
-
-        //BarangMisteri
-        if (!isNumber(user.common)) user.common = 0;
-        if (!isNumber(user.uncommon)) user.uncommon = 0;
-        if (!isNumber(user.mythic)) user.mythic = 0;
-        if (!isNumber(user.legendary)) user.legendary = 0;
-        if (!isNumber(user.sampah)) user.sampah = 0;
-        //Makanan
-        if (!isNumber(user.potion)) user.potion = 0;
-        if (!isNumber(user.makananpet)) user.makananpet = 0;
-        if (!isNumber(user.daging)) user.daging = 0;
-
-        //Peliharaan
-        if (!isNumber(user.kucing)) user.kucing = 0;
-        if (!isNumber(user.kucingexp)) user.kucingexp = 0;
-        if (!isNumber(user.kucinglastfeed)) user.kucinglastfeed = 0;
-        if (!isNumber(user.kuda)) user.kuda = 0;
-        if (!isNumber(user.kudaexp)) user.kudaexp = 0;
-        if (!isNumber(user.kudalastfeed)) user.kudalastfeed = 0;
-        if (!isNumber(user.rubah)) user.rubah = 0;
-        if (!isNumber(user.rubahexp)) user.rubahexp = 0;
-        if (!isNumber(user.rubahlastfeed)) user.rubahlastfeed = 0;
-        if (!isNumber(user.anjing)) user.anjing = 0;
-        if (!isNumber(user.anjingexp)) user.anjingexp = 0;
-        if (!isNumber(user.anjinglastfeed)) user.anjinglastfeed = 0;
-        if (!isNumber(user.anakkucing)) user.anakkucing = 0;
-        if (!isNumber(user.anakkuda)) user.anakkuda = 0;
-        if (!isNumber(user.anakrubah)) user.anakrubah = 0;
-        if (!isNumber(user.anakanjing)) user.anakanjing = 0;
-        if (!isNumber(user.pet)) user.pet = 0;
 
         //Lainnya
-        if (!isNumber(user.tropy)) user.tropy = 0;
-        if (!("liga" in user)) user.liga = "";
-        if (!isNumber(user.joincount)) user.joincount = 0;
-        if (!("chara" in user)) user.chara = "Tidak Punya";
-        if (!("pasangan" in user)) user.pasangan = "";
-        if (!("subscriber" in user)) user.subscriber = false;
-        if (!("follow" in user)) user.follow = false;
         if (!("logged" in user)) user.logged = false;
-        if (!("hentai" in user)) user.hentai = false;
+        if (!isNumber(user.login)) user.login = Number(new Date);
         if (!("premium" in user)) user.premium = false;
         if (!isNumber(user.premiumTime)) user.premiumTime = 0;
         if (!isNumber(user.bannedDate)) user.bannedDate = 0;
@@ -128,235 +54,41 @@ export async function handler(m) {
         if (!("lastIstigfar" in user)) user.lastIstigfar = true;
         if (!("autolevelup" in user)) user.autolevelup = true;
         if (!user.registered) {
-          if (!("name" in user)) user.name = m.pushname;
+          if (!("name" in user)) user.name = m.pushName;
           if (!isNumber(user.age)) user.age = -1;
           if (!isNumber(user.regTime)) user.regTime = -1;
         }
-
         //Timer
         if (!isNumber(user.tebaktime)) user.tebaktime = 0;
-        if (!isNumber(user.imgtime)) user.imgtime = 0;
-        if (!isNumber(user.animetime)) user.animetime = 0;
-        if (!isNumber(user.stikertime)) user.stikertime = 0;
-        if (!isNumber(user.dltime)) user.dltime = 0;
-        if (!isNumber(user.katatime)) user.katatime = 0;
-        if (!isNumber(user.funtime)) user.funtime = 0;
-        if (!isNumber(user.gctime)) user.gctime = 0;
-        if (!isNumber(user.infotime)) user.infotime = 0;
-        if (!isNumber(user.intertime)) user.intertime = 0;
-        if (!isNumber(user.islamtime)) user.islamtime = 0;
-        if (!isNumber(user.nsfwtime)) user.nsfwtime = 0;
-        if (!isNumber(user.quotetime)) user.quotetime = 0;
-        if (!isNumber(user.rpgtime)) user.rpgtime = 0;
-        if (!isNumber(user.login)) user.login = Number(new Date);
-        //Hewan
-        if (!isNumber(user.unta)) user.unta = 0;
-        if (!isNumber(user.kerbau)) user.kerbau = 0;
-        if (!isNumber(user.sapi)) user.sapi = 0;
-        if (!isNumber(user.keledai)) user.keledai = 0;
-        if (!isNumber(user.domba)) user.domba = 0;
-        if (!isNumber(user.kambing)) user.kambing = 0;
-        if (!isNumber(user.rusa)) user.rusa = 0;
-        if (!isNumber(user.kelinci)) user.kelinci = 0;
-        if (!isNumber(user.angsa)) user.angsa = 0;
-        if (!isNumber(user.bebek)) user.bebek = 0;
-        if (!isNumber(user.ayam)) user.ayam = 0;
-        if (!isNumber(user.burung)) user.burung = 0;
-        //Ikan
-        if (!isNumber(user.paus)) user.paus = 0;
-        if (!isNumber(user.kepiting)) user.kepiting = 0;
-        if (!isNumber(user.gurita)) user.gurita = 0;
-        if (!isNumber(user.cumi)) user.cumi = 0;
-        if (!isNumber(user.buntal)) user.buntal = 0;
-        if (!isNumber(user.dory)) user.dory = 0;
-        if (!isNumber(user.lumba)) user.lumba = 0;
-        if (!isNumber(user.lobster)) user.lobster = 0;
-        if (!isNumber(user.hiu)) user.hiu = 0;
-        if (!isNumber(user.udang)) user.udang = 0;
-        if (!isNumber(user.ikan)) user.ikan = 0;
-        if (!isNumber(user.orca)) user.orca = 0;
-
-        //WaktuRPG
-        if (!isNumber(user.lastadventure)) user.lastadventure = 0;
-        if (!isNumber(user.lastfishing)) user.lastfishing = 0;
-        if (!isNumber(user.lastdungeon)) user.lastdungeon = 0;
-        if (!isNumber(user.lastduel)) user.lastduel = 0;
-        if (!isNumber(user.lastmining)) user.lastmining = 0;
-        if (!isNumber(user.lasthunt)) user.lasthunt = 0;
         if (!isNumber(user.lastweekly)) user.lastweekly = 0;
         if (!isNumber(user.lastmonthly)) user.lastmontly = 0;
-        if (!isNumber(user.lastberburu)) user.lastberburu = 0;
-        if (!isNumber(user.lastberkebun)) user.lastberkebun = 0;
         if (!isNumber(user.expired)) user.expired = 0;
-        if (!isNumber(user.suit)) user.suit = 0;
-
-        //TimingKerja
-        if (!isNumber(user.kerjasatu)) user.kerjasatu = 0;
-        if (!isNumber(user.kerjadua)) user.kerjadua = 0;
-        if (!isNumber(user.kerjatiga)) user.kerjatiga = 0;
-        if (!isNumber(user.kerjaempat)) user.kerjaempat = 0;
-        if (!isNumber(user.kerjalima)) user.kerjalima = 0;
       } else
         global.db.data.users[m.sender] = {
-          healt: 100,
-          stamina: 100,
           level: 0,
           exp: 0,
           limit: 10,
           lastclaim: 0,
           money: 0,
-          //Alat-Alat
-          armor: 0,
-          armordurability: 0,
-          sword: 0,
-          sworddurability: 0,
-          pickaxe: 0,
-          pickaxedurability: 0,
-          fishingrod: 0,
-          fishingroddurability: 0,
-          senapan: 0,
-          senapandurability: 0,
-          //Tempat
-          ojek: 0,
-          bank: 0,
-          rumahsakit: 0,
-          fortress: 0,
-          troopcamp: 0,
-          //BahanAlam
-          gold: 0,
-          diamond: 0,
-          iron: 0,
-          kayu: 0,
-          batu: 0,
-          string: 0,
-          //BarangMisteri
-          common: 0,
-          uncommon: 0,
-          mythic: 0,
-          legendary: 0,
-          sampah: 0,
-          //Makanan
-          potion: 0,
-          makananpet: 0,
-          daging: 0,
-
-          //Buahbuahan
-          pisang: 0,
-          anggur: 0,
-          mangga: 0,
-          jeruk: 0,
-          apel: 0,
-          bibitpisang: 0,
-          bibitanggur: 0,
-          bibitmangga: 0,
-          bibitjeruk: 0,
-          bibitapel: 0,
-          gardenboxs: 0,
-          //Peliharaan
-          kucing: 0,
-          kucingexp: 0,
-          kucinglastclaim: 0,
-          kuda: 0,
-          kudaexp: 0,
-          kudalastclaim: 0,
-          rubah: 0,
-          rubahexp: 0,
-          rubahlastclaim: 0,
-          anjing: 0,
-          anjingexp: 0,
-          anjinglastclaim: 0,
-          anakkucing: 0,
-          anakkuda: 0,
-          anakrubah: 0,
-          anakanjing: 0,
-          pet: 0,
-
-          //Hewan
-          unta: 0,
-          kerbau: 0,
-          sapi: 0,
-          keledai: 0,
-          domba: 0,
-          kambing: 0,
-          rusa: 0,
-          kelinci: 0,
-          angsa: 0,
-          bebek: 0,
-          ayam: 0,
-          burung: 0,
-
-          //Ikan
-          paus: 0,
-          kepiting: 0,
-          gurita: 0,
-          cumi: 0,
-          buntal: 0,
-          dory: 0,
-          lumba: 0,
-          lobster: 0,
-          hiu: 0,
-          udang: 0,
-          ikan: 0,
-          orca: 0,
-
-          //Lainnya
-          tropy: 0,
-          joincount: 0,
           banned: false,
-          mute: false,
           warn: 0, 
           afk: -1,
           afkReason: "",
           bannedReason: "",
           antispam: 0,
           antispamlastclaim: 0,
-          as: 0,
           //Waktu
-          lastadventure: 0,
-          lastfishing: 0,
-          lastdungeon: 0,
-          lastduel: 0,
-          lastmining: 0,
-          lasthunt: 0,
           lastweekly: 0,
           lastmonthly: 0,
-          lastberburu: 0,
-          lastberkebun: 0,
           expired: 0,
-          suit: 0,
           //Time
-          imgtime: 0,
-          animetime: 0,
-          stikertime: 0,
-          dltime: 0,
           tebaktime: 0,
-          katatime: 0,
-          funtime: 0,
-          gctime: 0,
-          infotime: 0,
-          intertime: 0,
-          islamtime: 0,
-          nsfwtime: 0,
-          rpgtime: 0,
-          quotetime:0,
           login: Number(new Date),
           logged: false,
-
-          //WaktuKerja
-          kerjasatu: 0,
-          kerjadua: 0,
-          kerjatiga: 0,
-          kerjaempat: 0,
-          kerjalima: 0,
-
+          // Data
           registered: false,
-          chara: "Tidak Punya",
-          subscriber: false,
-          follow: false,
-          hentai: false,
-          pasangan: "",
           premiumTime: 0,
-          name: m.pushname,
+          name: m.pushName,
           age: -1,
           regTime: -1,
           autolevelup: false,

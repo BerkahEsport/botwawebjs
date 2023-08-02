@@ -652,7 +652,8 @@ export async function handler(m) {
           console.error(`Plugins Call => ${e}`)
           if (e) {
               let text = format(e)
-              let textsender = text.replace((JSON.stringify(___dirname)), '#BerkahEsport.ID')
+              let dir = format(___dirname)
+              let textsender = text.replace(dir, '#BerkahEsport.ID')
               for (let key of Object.values(restapi.apikey)) text = text.replace(new RegExp(key, 'g'), '#ApiBE')
               if (e.name) {
                   m.send(global.nomor.owner + '@c.us', `*🗂️ Plugin:* ${m.plugin}\n*👤 Sender:* ${m.sender}\n*💬 Chat:* https://wa.me/${m.sender.replace('@c.us','')}\n*💻 Command:* ${usedPrefix}${command} ${args.join(' ')}\n📄 *Error Logs:*\n\n\`\`\`${text}\`\`\``.trim(), { quoted: m})
@@ -751,7 +752,7 @@ const dfail = async (type, m, conn) => {
     text: `*𝕋𝔼𝕂𝕊 𝕃𝕀𝕄𝕀𝕋𝔼𝔻* • ᴛᴇᴋꜱ ʏᴀɴɢ ᴋᴀᴍᴜ ᴍᴀꜱᴜᴋᴋᴀɴ ᴛᴇʀʟᴀʟᴜ ʙᴀɴʏᴀᴋ! ᴍᴀᴋꜱ. 1500 ᴋᴀʀᴀᴋᴛᴇʀ. ` 
   }[type];
   if (msg)
-  return conn.sendMessage(m.from, global.logo.thumb ,{caption: msg})
+  return conn.sendMessage(m.from, fs.readFileSync('./src/access_ditolak.jpg') ,{caption: msg})
   let msgg = {
       unreg: "ʜᴀʟʟᴏ ᴋᴀᴋ ! 👋\nᴀɴᴅᴀ ʜᴀʀᴜs ᴍᴇɴᴅᴀғᴛᴀʀ ᴋᴇ ᴅᴀᴛᴀʙᴀsᴇ ʙᴏᴛ ᴅᴜʟᴜ sᴇʙᴇʟᴜᴍ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ғɪᴛᴜʀ ɪɴɪ\n\nᴋᴇᴛɪᴋ .daftar ɴᴀᴍᴀ.ᴜᴍᴜʀ \nᴄᴏɴᴛᴏʜ .daftar BerkahEsport.26" }//➞ ᴋʟɪᴄᴋ ᴛᴏᴍʙᴏʟ ᴅɪʙᴀᴡᴀʜ ᴜɴᴛᴜᴋ ᴍᴇɴᴅᴀғᴛᴀʀ ᴋᴇ ᴅᴀᴛᴀʙᴀsᴇ ʙᴏᴛ
   [ type ];

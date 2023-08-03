@@ -2,7 +2,7 @@
 Mau ngapain mas? mau ganti nama ya?
 Hargai lah yg buat,gw cape² ngebuat ini tapi kalian nya malah enak²an ubah nama doang.
 Kalo mau ada nama kalian chat dulu ke owner BOTWAWEBJS, izin dulu biar sama² enak.
-di tambahin nama boleh tapi di ilagin jangan mas.
+di tambahin nama boleh tapi di ilangin jangan mas.
 
 http://wa.me/62895371549895?text=bg%20izin%20taroh%20nama%20di%20bot%20mu%20yak
 */

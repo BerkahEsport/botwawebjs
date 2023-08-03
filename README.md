@@ -35,7 +35,7 @@ conn.reply(m.from, 'teks', m) \\reply pesan
 conn.sendFile(m.from, 'link', 'namalink', 'teks', m) \\mengirim File
 conn.sendFiles(m.from, 'link', 'namalink', 'teks', m) \\mengirim File (Cadangan)
 conn.sendDocs(m.from, 'link', 'namalink', 'teks', m) \\mengirim File Document
-conn.sendAd(m.from, 'link', 'namalink', 'teks', m) \\mengirim AdReply pesan
+conn.sendAd(m.from, 'link image', 'teks', m) \\mengirim AdReply pesan
 
 Default:
 conn.sendMessage(m.from, 'teks', {quoted: m, options})

@@ -12,7 +12,7 @@ if(!isPrems) {
    if (!text) throw '*Masukkan link*\n Contoh: https://www.facebook.com/DramaFacbook21/videos/1775049149358700/?app=fbl'
   
 try {
-let data = await (await fetch(`https://xzn.wtf/api/download?url=${text}&apikey=berkahesport`)).json()
+let data = await (await fetch(`https://xzn.wtf/api/download?url=${text}&apikey=beta`)).json()
     conn.sendFile(m.chat, data.url[1].url, ``, `🔗 *Judul* ${data.meta.title} \n🔗 *Durasi* ${data.meta.duration}`, m)
 } catch {
    

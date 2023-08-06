@@ -35,6 +35,7 @@ conn.reply(m.from, 'teks', m) \\reply pesan
 conn.sendFile(m.from, 'link', 'namalink', 'teks', m) \\mengirim File
 conn.sendFiles(m.from, 'link', 'namalink', 'teks', m) \\mengirim File (Cadangan)
 conn.sendDocs(m.from, 'link', 'namalink', 'teks', m) \\mengirim File Document
+conn.sendSticker(m.from, 'link image', 'packName', 'packPublish', m) \\Mengirim Sticker
 conn.sendAd(m.from, 'link image', 'teks', m) \\mengirim AdReply pesan
 
 Default:

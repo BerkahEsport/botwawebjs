@@ -11,7 +11,7 @@ import chalk from 'chalk';
 import restapi from './lib/restapi.js'
 let isNumber = x => typeof x === 'number' && !isNaN(x);
 
-export async function handler(m) {
+export async function handler(conn, m) {
   if (!m) return;
   await smsg(conn, m);
   if ( !m.fromMe && m.text.match( /(bot|berkahesport|berkahesportbot|botberkah|berkahesport.id)/gi ) ) {

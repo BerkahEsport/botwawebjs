@@ -38,7 +38,7 @@ async function ClientConnect() {
 // <===== VIA CODE =====>
       linkingMethod: new LinkingMethod({ // Perlu diketahui ini cuma work pakai Linux.
           phone: {
-            number: "62857232247702" // Masuukan nomor kamu disini.
+            number: global.nomor.bot // Masuukan nomor kamu disini.
           },
         }),
       playwright: {
@@ -68,7 +68,7 @@ conn.on('ready', async () => {
     await conn.sendMessage("62895375950107@c.us", `${JSON.stringify(conn.info)}`)
 });
 // <===== Mekanisme pesan BOT Whatsapp =====>
-conn.on('message_create', handler.handler.bind(global.conn));
+conn.on('message_create', async (message) => await handler.handler(global.conn, message));
 conn.on('group_admin_changed', async (admin) => await handler.participantsUpdate(global.conn, admin));
 conn.on('group_join', async (join) => await handler.participantsUpdate(global.conn, join));
 conn.on('group_leave', async (leave) => await handler.participantsUpdate(global.conn, leave));

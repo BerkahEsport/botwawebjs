@@ -66,4 +66,4 @@ function start(file) {
     })
 }
 
-start('main.js')
+start('main-linking.js') //Jika mau scan QR-Code ganti jadi main-qr.js

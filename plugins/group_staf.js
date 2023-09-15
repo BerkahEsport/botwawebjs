@@ -1,6 +1,6 @@
 import fs from 'fs';
 let handler = async (m, { conn, participants, args }) => {
-const pp = await conn.getProfilePicUrl(m.chat).catch(_ => global.logo.thumb) || global.logo.thumb//await fs.readFileSync('./src/avatar_contact.png')
+const pp = await conn.getProfilePict(m.chat).catch(_ => global.logo.thumb) || global.logo.thumb//await fs.readFileSync('./src/avatar_contact.png')
 const groupAdmins = participants.filter(p => p.isAdmin)
 const listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v?.id?._serialized.split('@')[0]}`).join('\n▢ ')
 const owner = participants.find(p => p.isSuperAdmin === true)?.id?.user || participants.find(p => p.isSuperAdmin === true)?.id?._serialized.split('@')[0] || `Tidak Ada`

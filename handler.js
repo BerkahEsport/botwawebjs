@@ -514,10 +514,9 @@ export async function participantsUpdate (action, conn) {
             for (let user of participants) {
                 let pp = global.logo.thumb
                 try {
-                    pp = await conn.getProfilePicUrl(user)
+                    pp = await conn.getProfilePict(user)
                 } catch (e) {
                   conn.sendMessage(global.nomor.ownerid, JSON.stringify(e))
-                  console.log(JSON.stringify(e))
                 } finally { 
                    text = (action.type === 'add' || action.type === 'invite' ? (chat.sWelcome|| welcome || 'Welcome, @user!').replace('@subject', groupMetadata.subject || 'GROUP').replace('@desc', groupMetadata.desc?.toString() || ' ') :
                         (chat.sBye || bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
@@ -533,7 +532,7 @@ export async function participantsUpdate (action, conn) {
             for (let user of participants) {
                 let pp = global.logo.thumb
                 try {
-                    pp = await conn.getProfilePicUrl(user)
+                    pp = await conn.getProfilePict(user)
                 } catch (e) {
                   conn.sendMessage(global.nomor.ownerid, JSON.stringify(e))
                   console.log(JSON.stringify(e))

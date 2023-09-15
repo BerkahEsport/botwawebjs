@@ -16,7 +16,7 @@ let handler  = async (m, { conn, command, args }) => {
 • No Telp`
 
 //------------ BIO
-let ppown = await conn.getProfilePicUrl(global.nomor.owner + '@c.us').catch(_ => global.logo.thumb) 
+let ppown = await conn.getProfilePict(global.nomor.owner + '@c.us').catch(_ => global.logo.thumb) 
 let teksbio = `❖『 *BIODATA* 』❖
 *ɴᴀᴍᴇ:* ${global.nama.owner}
 *ᴀɢᴇ:* 26ᵗʰ

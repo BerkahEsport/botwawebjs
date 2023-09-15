@@ -69,10 +69,10 @@ conn.on('ready', async () => {
 });
 // <===== Mekanisme pesan BOT Whatsapp =====>
 conn.on('message_create', handler.handler.bind(global.conn));
-conn.on('group_admin_changed', async (admin) => await handler.participantsUpdate(conn, admin));
-conn.on('group_join', async (join) => await handler.participantsUpdate(conn, join));
-conn.on('group_leave', async (leave) => await handler.participantsUpdate(conn, leave));
-conn.on('group_update', async (group) => await handler.groupsUpdate(conn, group));
+conn.on('group_admin_changed', async (admin) => await handler.participantsUpdate(global.conn, admin));
+conn.on('group_join', async (join) => await handler.participantsUpdate(global.conn, join));
+conn.on('group_leave', async (leave) => await handler.participantsUpdate(global.conn, leave));
+conn.on('group_update', async (group) => await handler.groupsUpdate(global.conn, group));
 return conn
 }
 

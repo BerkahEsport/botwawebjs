@@ -496,7 +496,7 @@ const dfail = async (type, m, conn) => {
  * Handle groups participants update
  * @param {Object} action
  */
-export async function participantsUpdate (action, conn) {
+export async function participantsUpdate (conn, action) {
   if (conn.user.id === global.nomor.bot || conn.user.jid === global.nomor.bot+'@c.us') return;
   if (global.db.data == null) await loadDatabase()
   let id = action.id.remote || action.participant.chatId
@@ -550,7 +550,7 @@ export async function participantsUpdate (action, conn) {
  * Handle groups update
  * @param {*} groupsUpdate 
  */
-export async function groupsUpdate(groupUpdate, conn) {
+export async function groupsUpdate(conn, groupUpdate) {
       try{
           const id = groupUpdate.id ? groupUpdate.id?.remote : groupUpdate.chatId ? groupUpdate?.chatId : ''
           const author = groupUpdate?.author || conn.user.jid || ''

@@ -24,6 +24,9 @@ cd botwawebjs
 npm i
 npm start
 ```
+- Default pakai linkingmethod, kalo mau pakai QR-Code
+silahkan ganti index.js pada line bagian start(main-linking.js)
+menjadi start(main-qr.js)
 
 # ★彡[ᴇxᴀᴍᴘʟᴇ ᴄᴍᴅ]彡★
 ```
@@ -53,3 +56,4 @@ Penyedia Base | Most Active Contributor | Penyedia Library MYWAJS | Penyedia Res
 ----------
 # ★彡[ɴᴏᴛᴇ]彡★
 Base ini akan terus dikembangkan oleh developer maupun contributor yang ada.
+Example BOT: https://wa.me/62857232247702?text=.daftar%20MemberBE.20

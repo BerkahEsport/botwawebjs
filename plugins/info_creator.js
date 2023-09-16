@@ -39,7 +39,7 @@ let teksbio = `❖『 *BIODATA* 』❖
         switch (type) {
           case 'nomor':
             conn.reply( m.chat, teksnomor, m, { contextInfo: { mentionedJid: [ nowner ] } } ).then( () =>
-            { let data = global.owner.filter(([id, isCreator]) => id && isCreator)
+            { let data = global.nomor.rowner.filter(([id, isCreator]) => id && isCreator)
               conn.sendContact(m.chat, data.map(([id, name]) => [id, name]), m)
             } )
             break

@@ -52,10 +52,10 @@ function start(file) {
   p.on('exit', (_, code) => {
     isRunning = false
     console.error('[❗] Keluar kode:', code)
-    if (code !== 0) start("main.js")
+    if (code !== 0) start("main-linking.js")
 		watchFile(args[0], () => {
 			unwatchFile(args[0])
-			start("main.js")
+			start("main-linking.js")
 		})
     })
   

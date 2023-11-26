@@ -22,7 +22,8 @@ global.__dirname = function dirname(pathURL) { return path.dirname(global.__file
 global.__require = function require(dir = import.meta.url) { return createRequire(dir) }
 const __dirname = global.__dirname(import.meta.url)
 import { Client, protoType } from "./lib/simple.js"
-import {LocalAuth} from 'whatsapp-web.js'
+import mywajs from 'whatsapp-web.js'
+const {LocalAuth} = mywajs
 import qrcode from 'qrcode-terminal'
 import syntaxerror from "syntax-error";
 import fs from 'fs'

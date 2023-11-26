@@ -1,1 +1,81 @@
-{}
+{
+  "users": {
+    "62895375950107@c.us": {
+      "level": 0,
+      "exp": null,
+      "limit": null,
+      "lastclaim": 0,
+      "money": 0,
+      "banned": false,
+      "warn": 0,
+      "afk": -1,
+      "afkReason": "",
+      "bannedReason": "",
+      "antispam": 1700968537975,
+      "antispamlastclaim": 0,
+      "lastweekly": 0,
+      "lastmonthly": 0,
+      "expired": 0,
+      "tebaktime": 0,
+      "login": 1700968529929,
+      "logged": false,
+      "registered": false,
+      "premiumTime": 0,
+      "age": -1,
+      "regTime": -1,
+      "autolevelup": false,
+      "lastIstigfar": 0,
+      "healt": 0,
+      "stamina": 100,
+      "premium": false,
+      "bannedDate": 0
+    }
+  },
+  "chats": {
+    "62895375950107@c.us": {
+      "isBanned": false,
+      "welcome": false,
+      "detect": false,
+      "sWelcome": "",
+      "sBye": "",
+      "sPromote": "",
+      "sDemote": "",
+      "sSubject": "",
+      "sDesc": "",
+      "descUpdate": true,
+      "delete": true,
+      "rpg": true,
+      "nsfw": false,
+      "antiBadword": true,
+      "antiLink": false,
+      "viewonce": false,
+      "antiToxic": true,
+      "simi": false,
+      "expired": 1700968529929,
+      "trial": false,
+      "premnsfw": false,
+      "autodelvn": true
+    }
+  },
+  "stats": {},
+  "settings": {
+    "6289654279897@c.us": {
+      "self": false,
+      "autoread": true,
+      "restrict": false,
+      "autorestart": true,
+      "restartDB": 0,
+      "anon": true,
+      "anticall": true,
+      "antispam": true,
+      "antitroli": true,
+      "backup": false,
+      "backupDB": 0,
+      "groupOnly": false,
+      "jadibot": false,
+      "onsfw": false,
+      "status": 0,
+      "hittime": 1700968530206
+    }
+  }
+}

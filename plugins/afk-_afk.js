@@ -19,7 +19,7 @@ export function before ( m )
         user.afk = -1
         user.afkReason = ''
     }
-    let jids = [...new Set([...(m.m.mentions || []), ...(m.quoted ? [m.quoted.sender] : [])])]
+    let jids = [...new Set([...(m.mentions || []), ...(m.quoted ? [m.quoted.sender] : [])])]
     for (let jid of jids) {
         let user = global.db.data.users[jid]
         if (!user)

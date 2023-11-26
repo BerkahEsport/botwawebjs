@@ -2,7 +2,7 @@ import PhoneNumber from 'awesome-phonenumber';
 import fs from 'fs';
 let handler = async (m, { conn }) => {
   let user = db.data.users[m.sender]
-  let who = m.m.mentions && m.m.mentions[0] ? m.m.mentions[0] : m.fromMe ? conn.user.jid : m.sender
+  let who = m.mentions && m.mentions[0] ? m.mentions[0] : m.fromMe ? conn.user.jid : m.sender
     let pp = await conn.getProfilePict(who).catch(_ => fs.readFileSync('./src/avatar_contact.png'))
     let { premium, level, limit, exp, lastclaim, registered, regTime, age } = global.db.data.users[who]
     let username = await conn.getName(who).catch(_ => 'User BE')

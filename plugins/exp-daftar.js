@@ -5,7 +5,7 @@ let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 let handler = async ( m, { text, usedPrefix, command } ) =>
 {
 	let pp = global.logo.thumb
-	let who = m.m.mentions && m.m.mentions[0] ? m.m.mentions[0] : m.fromMe ? conn.user.jid : m.sender
+	let who = m.mentions && m.mentions[0] ? m.mentions[0] : m.fromMe ? conn.user.jid : m.sender
 	try {
 	  pp = await conn.getProfilePict(who)
 	} catch (e) {

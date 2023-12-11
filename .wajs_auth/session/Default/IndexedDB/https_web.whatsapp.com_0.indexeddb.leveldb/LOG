@@ -1,0 +1,38 @@
+2023/12/11-10:03:12.233 1f50 Reusing MANIFEST D:\GitHub\MYWAJS-BOT\botwawebjs\.wajs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/12/11-10:03:12.233 1f50 Recovering log #508
+2023/12/11-10:03:12.242 1f50 Reusing old log D:\GitHub\MYWAJS-BOT\botwawebjs\.wajs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000508.log 
+2023/12/11-10:03:22.842 1f50 Level-0 table #517: started
+2023/12/11-10:03:22.863 1f50 Level-0 table #517: 120192 bytes OK
+2023/12/11-10:03:22.874 1f50 Delete type=0 #508
+2023/12/11-10:03:22.874 1f50 Manual compaction at level-0 from '\x00u\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00v\x00\x00\x00' @ 0 : 0; will stop at (end)
+2023/12/11-10:03:25.048 2308 Compacting 1@1 + 5@2 files
+2023/12/11-10:03:25.240 2308 Generated table #518@1: 85894 keys, 2235927 bytes
+2023/12/11-10:03:25.369 2308 Generated table #519@1: 37919 keys, 2398814 bytes
+2023/12/11-10:03:25.444 2308 Generated table #520@1: 2773 keys, 2125124 bytes
+2023/12/11-10:03:25.582 2308 Generated table #521@1: 55188 keys, 2227582 bytes
+2023/12/11-10:03:25.651 2308 Generated table #522@1: 25948 keys, 506238 bytes
+2023/12/11-10:03:25.651 2308 Compacted 1@1 + 5@2 files => 9493685 bytes
+2023/12/11-10:03:25.665 2308 compacted to: files[ 0 0 5 0 0 0 0 ]
+2023/12/11-10:03:25.666 2308 Delete type=2 #510
+2023/12/11-10:03:25.666 2308 Delete type=2 #511
+2023/12/11-10:03:25.666 2308 Delete type=2 #512
+2023/12/11-10:03:25.666 2308 Delete type=2 #513
+2023/12/11-10:03:25.666 2308 Delete type=2 #514
+2023/12/11-10:03:25.666 2308 Delete type=2 #517
+2023/12/11-10:13:24.686 2308 Level-0 table #524: started
+2023/12/11-10:13:24.753 2308 Level-0 table #524: 1352517 bytes OK
+2023/12/11-10:13:24.766 2308 Delete type=0 #516
+2023/12/11-10:13:49.578 2d48 Compacting 1@1 + 5@2 files
+2023/12/11-10:13:49.731 2d48 Generated table #525@1: 85468 keys, 2234391 bytes
+2023/12/11-10:13:49.873 2d48 Generated table #526@1: 40607 keys, 2402301 bytes
+2023/12/11-10:13:49.978 2d48 Generated table #527@1: 596 keys, 2116457 bytes
+2023/12/11-10:13:50.112 2d48 Generated table #528@1: 47728 keys, 2226773 bytes
+2023/12/11-10:13:50.181 2d48 Generated table #529@1: 37997 keys, 744705 bytes
+2023/12/11-10:13:50.181 2d48 Compacted 1@1 + 5@2 files => 9724627 bytes
+2023/12/11-10:13:50.194 2d48 compacted to: files[ 0 0 5 0 0 0 0 ]
+2023/12/11-10:13:50.194 2d48 Delete type=2 #518
+2023/12/11-10:13:50.194 2d48 Delete type=2 #519
+2023/12/11-10:13:50.195 2d48 Delete type=2 #520
+2023/12/11-10:13:50.195 2d48 Delete type=2 #521
+2023/12/11-10:13:50.195 2d48 Delete type=2 #522
+2023/12/11-10:13:50.195 2d48 Delete type=2 #524

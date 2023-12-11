@@ -1,0 +1,21 @@
+2023/12/11-10:01:51.177 1574 Reusing MANIFEST D:\GitHub\MYWAJS-BOT\botwawebjs\.wajs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/12/11-10:01:51.182 1574 Recovering log #500
+2023/12/11-10:01:51.246 1574 Reusing old log D:\GitHub\MYWAJS-BOT\botwawebjs\.wajs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000500.log 
+2023/12/11-10:02:01.859 1574 Level-0 table #509: started
+2023/12/11-10:02:01.921 1574 Level-0 table #509: 1036622 bytes OK
+2023/12/11-10:02:01.934 1574 Delete type=0 #500
+2023/12/11-10:02:01.934 9a8 Manual compaction at level-0 from '\x00t\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00u\x00\x00\x00' @ 0 : 0; will stop at (end)
+2023/12/11-10:02:04.050 1574 Compacting 1@1 + 5@2 files
+2023/12/11-10:02:04.252 1574 Generated table #510@1: 85918 keys, 2236190 bytes
+2023/12/11-10:02:04.374 1574 Generated table #511@1: 37396 keys, 2399992 bytes
+2023/12/11-10:02:04.458 1574 Generated table #512@1: 2903 keys, 2125542 bytes
+2023/12/11-10:02:04.612 1574 Generated table #513@1: 55573 keys, 2227326 bytes
+2023/12/11-10:02:04.681 1574 Generated table #514@1: 25419 keys, 496290 bytes
+2023/12/11-10:02:04.681 1574 Compacted 1@1 + 5@2 files => 9485340 bytes
+2023/12/11-10:02:04.697 1574 compacted to: files[ 0 0 5 0 0 0 0 ]
+2023/12/11-10:02:04.697 1574 Delete type=2 #502
+2023/12/11-10:02:04.697 1574 Delete type=2 #503
+2023/12/11-10:02:04.697 1574 Delete type=2 #504
+2023/12/11-10:02:04.697 1574 Delete type=2 #505
+2023/12/11-10:02:04.698 1574 Delete type=2 #506
+2023/12/11-10:02:04.698 1574 Delete type=2 #509

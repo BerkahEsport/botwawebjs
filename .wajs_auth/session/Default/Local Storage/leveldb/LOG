@@ -1,0 +1,6 @@
+2023/12/11-10:03:10.501 1f50 Reusing MANIFEST D:\GitHub\MYWAJS-BOT\botwawebjs\.wajs_auth\session\Default\Local Storage\leveldb/MANIFEST-000001
+2023/12/11-10:03:10.504 1f50 Recovering log #10
+2023/12/11-10:03:10.505 1f50 Reusing old log D:\GitHub\MYWAJS-BOT\botwawebjs\.wajs_auth\session\Default\Local Storage\leveldb/000010.log 
+2023/12/11-10:05:10.753 2d48 Level-0 table #14: started
+2023/12/11-10:05:10.786 2d48 Level-0 table #14: 12637 bytes OK
+2023/12/11-10:05:10.810 2d48 Delete type=0 #10

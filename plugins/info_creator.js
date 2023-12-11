@@ -16,7 +16,7 @@ let handler  = async (m, { conn, command, args }) => {
 • No Telp`
 
 //------------ BIO
-let ppown = await conn.getProfilePict(global.nomor.owner + '@c.us').catch(_ => global.logo.thumb) 
+let ppown = await conn.profilePictureUrl(global.nomor.owner + '@c.us').catch(_ => global.logo.thumb) 
 let teksbio = `❖『 *BIODATA* 』❖
 *ɴᴀᴍᴇ:* ${global.nama.owner}
 *ᴀɢᴇ:* 26ᵗʰ
@@ -38,30 +38,19 @@ let teksbio = `❖『 *BIODATA* 』❖
       const count = args[1] && args[1].length > 0 ? Math.min(99999999, Math.max(parseInt(args[1]), 1)) : !args[1] || args.length < 3 ? 1 : Math.min(1, count)
         switch (type) {
           case 'nomor':
-            conn.reply( m.chat, teksnomor, m, { contextInfo: { mentionedJid: [ nowner ] } } ).then( () =>
-            { let data = global.nomor.rowner.filter(([id, isCreator]) => id && isCreator)
-              conn.sendContact(m.chat, data.map(([id, name]) => [id, name]), m)
+            conn.reply( m.chat, teksnomor, m).then( () =>
+            { let data = global.nomor.rowner
+              conn.sendContact(m.chat, data, m)
             } )
-            break
+            break 
             case 'bio':
               conn.sendFile(m.chat,ppown,'', teksbio,m)
               break
             
           default:
-            return await conn.sendMessage(m.chat, { text: 'Ketik _.owner nomor_ untuk meminta nomor. \n Ketik _.owner bio_ untuk melihat Biodata Owner.' }, { quoted: m })
+            return await conn.sendMessage(m.chat, 'Ketik _.owner nomor_ untuk meminta nomor. \n Ketik _.owner bio_ untuk melihat Biodata Owner.', { quoted: m })
         }
-    } else if (/aoaooaoaooaoa/i.test(command)) {
-      const count = args[2] && args[2].length > 0 ? Math.min(99999999, Math.max(parseInt(args[2]), 1)) : !args[2] || args.length < 4 ? 1 :Math.min(1, count)
-      switch (_type) {
-        case 't':
-          break
-        case '':
-          break
-
-        default:
-          return conn.reply( m.chat, caption, m)
-      }
-    }
+    } 
   } catch (err) {
     m.reply("Error\n\n\n" + err.stack)
   }

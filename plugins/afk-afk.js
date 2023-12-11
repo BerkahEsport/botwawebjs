@@ -11,7 +11,7 @@ let handler = async ( m, { text } ) =>
   m.reply( `${ afkmode}
 
   ╭[ *★彡[ᴋᴀᴍᴜ ꜱᴇᴋᴀʀᴀɴɢ ᴀꜰᴋ]彡★* ]✧
-  ┆ *Nama*   : ${m.pushName}
+  ┆ *Nama*   : ${m.pushname}
   ┆ *Alasan* : ${user.afkReason ? '' + user.afkReason : ''}
   ╰┅────────★`)
 }

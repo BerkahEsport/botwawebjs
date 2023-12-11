@@ -7,7 +7,7 @@ let handler = async (m, { conn }) => {
     let pp = global.logo.thumb
 	let who = m.sender
 	try {
-	  pp = await conn.getProfilePict(who)
+	  pp = await conn.profilePictureUrl(who)
 	} catch (e) {
 	
 	} finally {

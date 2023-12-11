@@ -1,23 +1,7 @@
 import fs from 'fs'
-let handler = async ( m, { conn, } ) =>
-{
-   
-    if ( m.text == `permisi` || m.text == `oi` || m.text == `Oi` || m.text == `Hallo permisi` || m.text == `Hallo` || m.text == `Hi` || m.text == `Jawab bot` || m.text == `Halo permisi`) {
-  let text = `*❖『 ^𝐀𝐃𝐀 𝐀𝐏𝐀 𝐊𝐀𝐊𝐀^ 』❖*`
-conn.sendMessage(m.chat, global.logo.thumb, {caption: text, quoted: m})
-} 
-        
-        
-         
-    if ( m.body == `tes` || m.text == `Tes` || m.text == `bot` || m.text == `Bot` || m.text == `Hlo` || m.text == `p` || m.text == `P` || m.text == `Hai` || m.text == `Halo`) 
-    {
-         let info = `Nani? (・o・)
-Ketik .menu untuk menampilkan daftar *MENU*.
-*ɴʙ:* ᴜɴᴛᴜᴋ ᴘᴇɴɢɢᴜɴᴀ ᴡʜᴀᴛꜱᴀᴘᴘ ʙɪꜱɴɪꜱ / ʙᴏᴛ ᴛɪᴅᴀᴋ ᴍᴇʀᴇꜱᴘᴏɴ ꜱɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ .home`
-
-        conn.sendMessage(m.chat, global.logo.thumb, {caption: info, quoted: m})
-    }
-     
+import func from '../lib/func.js'
+let handler = async ( m, { conn, } ) => {
+     func.getFile("https://dl155.dlmate18.online/?file=M3R4SUNiN3JsOHJ6WWQ2a3NQS1Y5ZGlxVlZIOCtyZ1duZGd6eVJRT0JPQnVxWmxrbk5Pb0l0MWNEN2NmaHJpbkhOZGE4VHZLWXB1c05SdWR2NVloQ1VDVjlzUXB2RHVCL3A1ekg4OTRXaFBIaStlM25td3oyeUhzY2MzWkFMcFRLQ1ZkcmxBd2xuUzF6N1NHbjFqVTRFZjdveHlVUkIwZC9EWWJiclBYOUpBVi9FMk5hdS8wMm9JQXVTK1M1OGNZamFEUDVWYWxsZUpzL3M1d1dIdDNlNVZlMHNla21lUEZ2MEpFMDhwT2d4cjE3L0d3VzVvM1R3PT0%3D", true, "OKE")
     }
 handler.customPrefix = /^(tes|bot|p|P|hlo|halo|hai|Tes|permisi|oi|Hallo|Jawab bot|Hallo permisi|Oi)$/i
 handler.command = new RegExp

@@ -22,8 +22,6 @@ global.__dirname = function dirname(pathURL) { return path.dirname(global.__file
 global.__require = function require(dir = import.meta.url) { return createRequire(dir) }
 const __dirname = global.__dirname(import.meta.url)
 import { Client, protoType } from "./lib/simple.js"
-import mywajs from 'whatsapp-web.js'
-const {LocalAuth} = mywajs
 import qrcode from 'qrcode-terminal'
 import syntaxerror from "syntax-error";
 import fs from 'fs'
@@ -33,36 +31,13 @@ import { format } from 'util'
 import pkg from 'chalk';
 const { red, green, yellow, cyan, magenta, yellowBright, white, gray, grey } = pkg;
 let handler = await import('./handler.js')
-global.db = new Low( new JSONFile('database.json'))
+global.db = new Low( new JSONFile('lib/json/database.json'))
 async function ClientConnect() { 
     global.conn = new Client({
-    authStrategy: new LocalAuth(), // Make mywajs amiruldev20.
-    playwright: {
-      headless: true, // Tanpa membuka browser.
-      devtools: false,
-      args: [
-          '--aggressive-tab-discard',
-          '--disable-accelerated-2d-canvas',
-          '--disable-application-cache',
-          '--disable-cache',
-          '--disable-dev-shm-usage',
-          '--disable-gpu',
-          '--disable-offline-load-stale-cache',
-          '--disable-setuid-sandbox',
-          '--disable-setuid-sandbox',
-          '--disk-cache-size=0',
-          '--ignore-certificate-errors',
-          '--no-first-run',
-          '--no-sandbox',
-          '--no-zygote',
-      ],
-      bypassCSP: true,
-    },
-    markOnlineAvailable: true,
-    qrMaxRetries: 6,
-    userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15',
-    takeoverTimeoutMs: 'Infinity',
-    clearSessions: true // Menghapus session otomatis.
+      sessionName: 'session',
+      playwright: {
+        headless: false, // Tanpa membuka browser.
+    }
 });
 // <----- Membuka Chromium Playwright ----->
 conn.initialize();
@@ -84,7 +59,6 @@ conn.on('group_join', async (join) => handler.participantsUpdate(join, global.co
 conn.on('group_leave', async (leave) => handler.participantsUpdate(leave, global.conn));
 conn.on('group_update', async (group) => handler.groupsUpdate(group, global.conn));
 }
-ClientConnect().catch(e => console.error(yellowBright(e)))
 
 // <===== MEMBUKA PLUGINS =====> By: @moexti
 const pluginFolder = global.__dirname(path.join(__dirname, './plugins/index'))
@@ -102,7 +76,6 @@ async function filesInit() {
     }
   }
 }
-filesInit().then(_ => console.log(green('PLUGINS BERHASIL DIMUAT...'))).catch(console.error)
 
 global.reload = async (_ev, filename) => {
   if (pluginFilter(filename)) {
@@ -129,12 +102,8 @@ global.reload = async (_ev, filename) => {
     }
   }
 }
-Object.freeze(global.reload)
-fs.watch(pluginFolder, global.reload)
-protoType()
 
 // <----- Memuat Database BOT ----->
-loadDatabase()
 async function loadDatabase() {
   await global.db.read()
   global.db.data = {
@@ -147,6 +116,12 @@ async function loadDatabase() {
   global.db.chain = _.chain(global.db.data)
 }
 
+Object.freeze(global.reload)
+fs.watch(pluginFolder, global.reload)
+protoType()
+loadDatabase()
+filesInit().then(_ => console.log(green('PLUGINS BERHASIL DIMUAT...'))).catch(e => console.error(yellowBright(e)))
+ClientConnect().catch(e => console.error(yellowBright(e)))
 // // <----- Menyimpan database BOT ----->
 setInterval(async () =>{
   if (global.db) await global.db.write();

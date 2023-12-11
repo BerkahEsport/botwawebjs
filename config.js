@@ -1,6 +1,17 @@
 import fs from 'fs'
 import chalk from 'chalk'
 import { fileURLToPath } from 'url'
+global.Exif = {
+  packId: "https://moexti.jw.lt/",
+  packName: `Sticker Ini Dibuat Oleh :`,
+  packPublish: "ʙᴇʀᴋᴀʜᴇꜱᴘᴏʀᴛ.ɪᴅ",
+  packEmail: "berkahesport@gmail.com",
+  packWebsite: "https://bot-baileys.berkahesport.repl.co/",
+  androidApp: "https://play.google.com/store/apps/details?id=com.bitsmedia.android.muslimpro",
+  iOSApp: "https://apps.apple.com/id/app/muslim-pro-al-quran-adzan/id388389451?|=id",
+  emojis: [],
+  isAvatar: 0,
+},
 /*============== ɪɴꜰᴏ ᴏᴡɴᴇʀ ==============*/
 global.nama = {
   owner: 'ミ★ ᴍᴏᴇxᴛɪ ★彡',
@@ -31,7 +42,7 @@ global.pay = {
 global.nomor = {
   bot: '6289654279897', // Ganti dengan nomor botmu untuk di linking device.
   owner: '62895375950107',
-  rowner: ['62895375950107', '62895371549895', '62815725878338'],
+  rowner: ['62895375950107', '62895371549895'],
   mods: ['62895375950107', '62895371549895'],
   ownerid: '62895375950107@c.us'
 }
@@ -62,6 +73,7 @@ global.teks = {
   subs: 'Jangan liat doang, subscribe dulu dong.. \n https://m.youtube.com/channel/UCG_Xj6eHBMaW9HTHTya9q6w'
 }
 global.cooldown = 300000 // 5 menit
+global.apikeyBE = "berkahesport"
 //------ JANGAN DIUBAH -----
 let fileP = fileURLToPath(import.meta.url)
 fs.watchFile(fileP, async () => {

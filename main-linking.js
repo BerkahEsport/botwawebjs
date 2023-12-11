@@ -4,9 +4,8 @@
 Terimakasih Untuk ALLAH S.W.T.
 Serta junjungan kami nabi Muhammad S.A.W
 
-Base dibuat tanggal 28 Mei 2023
+Base dibuat lagi tanggal 09 Desember 2023
 Oleh: https://github.com/BerkahEsport/
-Collaborator : https://github.com/Leuthra/
 -
 - Silahkan tambah disini bro...
 Jangan ubah yak mending ditambah... ^_^
@@ -22,8 +21,6 @@ global.__dirname = function dirname(pathURL) { return path.dirname(global.__file
 global.__require = function require(dir = import.meta.url) { return createRequire(dir) }
 const __dirname = global.__dirname(import.meta.url)
 import { Client, protoType } from "./lib/simple.js"
-import mywajs from 'whatsapp-web.js'
-const { LinkingMethod} = mywajs
 import syntaxerror from "syntax-error";
 import fs from 'fs'
 import { JSONFile, Low } from 'lowdb'
@@ -31,30 +28,23 @@ import _ from 'lodash'
 import { format } from 'util'
 import pkg from 'chalk';
 const { red, green, yellow, cyan, magenta, yellowBright, white, gray, grey } = pkg;
-const handler = await import('./handler.js');
-global.db = new Low( new JSONFile('./lib/data/database.json'));
+global.db = new Low( new JSONFile('lib/json/database.json'))
 // <===== Connect ke BOT =====>
 async function ClientConnect() { 
-    global.conn = new Client({
+    const conn = new Client({
 // <===== VIA CODE =====>
-      linkingMethod: new LinkingMethod({ // Perlu diketahui ini cuma work pakai Linux.
-          phone: {
-            number: global.nomor.bot // Masuukan nomor kamu disini.
-          },
-        }),
-      playwright: {
-          headless: true,
-          devtools: false,
-          userDataDir: ".mywajs_auth",
-         },
-        markOnlineAvailable: false,
-        authTimeoutMs: 60000,
-        clearSessions: 30, // minutes, 0 = false
-        clearMsg: 0, // minutes, 0 = false
-        otherClear: 1, // minutes, 0 = false (session other bot)
+  playwright: {
+    headless: true, // true Tanpa membuka browser.
+  },
+  pairingNumber: global.nomor.bot,
+  sessionName: 'session',
+  sessionPath: '.wajs_auth'
+  
 })
+
 // <===== Membuka Chromium Playwright =====>
 conn.initialize();
+
 // <===== Membuat Linking CODE =====>
 conn.on('code', (qr) => {
     console.log('CODE:', yellow(qr));
@@ -62,18 +52,23 @@ conn.on('code', (qr) => {
 conn.on("loading_screen", async (message, percent) => {
   console.info(`Menghubungkan, membuka ${yellow(message)} => ${red(percent)}`);
 });
+
 // <===== BOT sudah terhubung ke Whatsapp =====>
 conn.on('ready', async () => {
     if (global.db.data == null) await loadDatabase();
     console.log(cyan("Klien bot sudah siap!!")); // Code dibawah buat info bot ini berjalan sukses...
-    await conn.sendMessage("62895375950107@c.us", `${JSON.stringify(conn.info)}`)
+    //await conn.sendMessage("62895375950107@c.us", `${JSON.stringify(conn.info)}`)
 });
+
 // <===== Mekanisme pesan BOT Whatsapp =====>
-conn.on('message_create', await handler.handler.bind(global.conn));
-conn.on('group_admin_changed', async (admin) => await handler.participantsUpdate(global.conn, admin));
-conn.on('group_join', async (join) => await handler.participantsUpdate(global.conn, join));
-conn.on('group_leave', async (leave) => await handler.participantsUpdate(global.conn, leave));
-conn.on('group_update', async (group) => await handler.groupsUpdate(global.conn, group));
+conn.on('message_create', async (message) => {
+  const m = await (await import(`./lib/serialize.js?v=${Date.now()}`)).default(conn, message)
+  await (await import(`./handler.js?v=${Date.now()}`)).default(conn, m, message)
+});
+// conn.on('group_admin_changed', async (admin) => await handler.participantsUpdate(conn, admin));
+// conn.on('group_join', async (join) => await handler.participantsUpdate(conn, join));
+// conn.on('group_leave', async (leave) => await handler.participantsUpdate(conn, leave));
+// conn.on('group_update', async (group) => await handler.groupsUpdate(conn, group));
 return conn
 }
 
@@ -93,6 +88,7 @@ async function filesInit() {
     }
   }
 }
+
 // <===== RELOAD PLUGINS =====>
 global.reload = async (_ev, filename) => {
   if (pluginFilter(filename)) {
@@ -119,6 +115,7 @@ global.reload = async (_ev, filename) => {
     }
   }
 }
+
 // <===== Memuat Database BOT =====>
 async function loadDatabase() {
   await global.db.read()
@@ -131,17 +128,20 @@ async function loadDatabase() {
   }
   global.db.chain = _.chain(global.db.data)
 }
+
+// <===== RUN ALL =====>
+Object.freeze(global.reload)
+fs.watch(pluginFolder, global.reload)
+loadDatabase()
+protoType()
+filesInit().then(_ => console.log(green('PLUGINS BERHASIL DIMUAT...'))).catch(e => console.error(e))
+ClientConnect().catch(e => console.error(yellowBright(e)))
+
 // <===== Menyimpan database BOT =====>
 setInterval(async () =>{
   if (global.db) await global.db.write();
 }, 30 * 1000)
-// <===== RUN ALL =====>
-loadDatabase()
-ClientConnect().catch(e => console.error(yellowBright(e)))
-filesInit().then(_ => console.log(green('PLUGINS BERHASIL DIMUAT...'))).catch(console.error)
-Object.freeze(global.reload)
-fs.watch(pluginFolder, global.reload)
-protoType()
+
 // <===== JANGAN DI HAPUS =====>
 let fileP = fileURLToPath(import.meta.url)
 fs.watchFile(fileP, () => {

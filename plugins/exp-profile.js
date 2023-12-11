@@ -3,7 +3,7 @@ import fs from 'fs';
 let handler = async (m, { conn }) => {
   let user = db.data.users[m.sender]
   let who = m.mentions && m.mentions[0] ? m.mentions[0] : m.fromMe ? conn.user.jid : m.sender
-    let pp = await conn.getProfilePict(who).catch(_ => fs.readFileSync('./src/avatar_contact.png'))
+    let pp = await conn.profilePictureUrl(who).catch(_ => fs.readFileSync('./src/avatar_contact.png'))
     let { premium, level, limit, exp, lastclaim, registered, regTime, age } = global.db.data.users[who]
     let username = await conn.getName(who).catch(_ => 'User BE')
     let name = registered ? global.db.data.users[who].name : ''
@@ -23,7 +23,7 @@ ${clockString(user.premiumTime)}` :"❌"}
 }
 handler.help = ['pp [@user]']
 handler.tags = ['xp']
-handler.command = /^pp$/i
+handler.command = /^pp|profile$/i
 
 handler.login = true
 handler.text = true

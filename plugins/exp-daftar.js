@@ -2,12 +2,12 @@ import { createHash } from 'crypto'
 let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 
 
-let handler = async ( m, { text, usedPrefix, command } ) =>
+let handler = async ( m, { conn, text, usedPrefix, command } ) =>
 {
 	let pp = global.logo.thumb
 	let who = m.mentions && m.mentions[0] ? m.mentions[0] : m.fromMe ? conn.user.jid : m.sender
 	try {
-	  pp = await conn.getProfilePict(who)
+	  pp = await conn.profilePictureUrl(who)
 	} catch (e) {
 	
 	} finally {

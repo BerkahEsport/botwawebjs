@@ -5,18 +5,16 @@ import { format } from 'util';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import fs from 'fs';
-import { smsg } from './lib/simple.js';
 import { readFileSync } from 'fs';
 import chalk from 'chalk';
 import restapi from './lib/restapi.js'
 let isNumber = x => typeof x === 'number' && !isNaN(x);
 
-export async function handler(m) {
+export default async function handler(conn, m) {
   if (!m) return;
-  await smsg(conn, m);
   if ( !m.fromMe && m.text.match( /(bot|berkahesport|berkahesportbot|botberkah|berkahesport.id)/gi ) ) {
   function pickRandom(list) { return list[Math.floor(Math.random() * list.length)]}
-  let res = JSON.parse(readFileSync('./lib/emoji.json'))
+  let res = JSON.parse(readFileSync('./lib/json/emoji.json'))
   let em = res.emoji
   let emot = pickRandom(em)
   m.react(`${emot}`)
@@ -54,7 +52,7 @@ export async function handler(m) {
         if (!("lastIstigfar" in user)) user.lastIstigfar = true;
         if (!("autolevelup" in user)) user.autolevelup = true;
         if (!user.registered) {
-          if (!("name" in user)) user.name = m.pushName;
+          if (!("name" in user)) user.name = m.pushname;
           if (!isNumber(user.age)) user.age = -1;
           if (!isNumber(user.regTime)) user.regTime = -1;
         }
@@ -88,7 +86,7 @@ export async function handler(m) {
           // Data
           registered: false,
           premiumTime: 0,
-          name: m.pushName,
+          name: m.pushname,
           age: -1,
           regTime: -1,
           autolevelup: false,
@@ -144,9 +142,9 @@ export async function handler(m) {
           trial: false,
           premnsfw: false,
         };
-      let settings = global.db.data.settings[this.user.jid];
+      let settings = global.db.data.settings[conn.user.jid];
       if (typeof settings !== "object")
-        global.db.data.settings[this.user.jid] = {};
+        global.db.data.settings[conn.user.jid] = {};
       if (settings) {
         if (!("self" in settings)) settings.self = false;
         if (!("autoread" in settings)) settings.autoread = true;
@@ -165,7 +163,7 @@ export async function handler(m) {
         if (!isNumber(settings.status)) settings.status = 0;
         if (!isNumber(settings.hittime)) settings.hittime = 0;
       } else
-        global.db.data.settings[this.user.jid] = {
+        global.db.data.settings[conn.user.jid] = {
           self: false,
           autoread: true,
           restrict: false,
@@ -205,8 +203,8 @@ export async function handler(m) {
       const __filename = path.join(___dirname, name)
       if (typeof plugin.all === 'function') {
         try {
-            await plugin.all.call(this, m, {
-                conn: this,
+            await plugin.all.call(conn, m, {
+                conn: conn,
                 participants,
                 isPrems,
                 isBotAdmin,
@@ -239,9 +237,9 @@ export async function handler(m) {
               : [[[], new RegExp()]]
       ).find((p) => p[1]);
       if (typeof plugin.before === 'function') {
-        if (await plugin.before.call(this, m, {
+        if (await plugin.before.call(conn, m, {
           match,
-          conn: this,
+          conn: conn,
           participants,
           isROwner,
           isOwner,
@@ -284,64 +282,64 @@ export async function handler(m) {
         if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
           let chat = global.db.data.chats[m.chat]
           let user = global.db.data.users[m.sender]
-          if (name != 'main_unmuteme.js' && name != 'exp-daftar.js' && user?.mute) return this.reply(m.chat,`ᴀɴᴅᴀ ᴛᴇʟᴀʜ ᴅɪ ᴍᴜᴛᴇ ᴋᴀʀᴇɴᴀ ᴋᴇʙᴀɴʏᴀᴋᴀɴ ᴛᴏxɪᴄ
+          if (name != 'main_unmuteme.js' && name != 'exp-daftar.js' && user?.mute) return conn.reply(m.chat,`ᴀɴᴅᴀ ᴛᴇʟᴀʜ ᴅɪ ᴍᴜᴛᴇ ᴋᴀʀᴇɴᴀ ᴋᴇʙᴀɴʏᴀᴋᴀɴ ᴛᴏxɪᴄ
 ᴍᴀꜱᴜᴋ ɢᴄ ᴅɪʙᴀᴡᴀʜ ɪɴɪ ᴋᴇᴍᴜᴅɪᴀɴ ᴋᴇᴛɪᴋ .unmuteme ᴅɪ ᴅᴀʟᴀᴍ ɢᴄ ᴛᴇʀꜱᴇʙᴜᴛ.
 ʟɪɴᴋ ɢᴄ : ${global.group.gc1}
 
 ᴀᴛᴀᴜ ꜱɪʟᴀʜᴋᴀɴ ʟᴀᴘᴏʀ ᴅᴀɴ ᴍᴀᴀꜰ ᴋᴇ ᴏᴡɴᴇʀ.
 ᴺᴼ ᴼʷⁿᵉʳ: http://wa.me/62895375950107`.trim(), m) 
-          if (name != 'admin-banunbanuser.js' && name != 'exp-daftar.js' && user?.banned) return this.reply(m.chat,`ᴀɴᴅᴀ ᴛᴇʟᴀʜ ᴅɪ ʙᴀɴɴᴇᴅ ꜱɪʟᴀʜᴋᴀɴ ʜᴜʙᴜɴɢɪ ᴏᴡɴᴇʀ ᴜɴᴛᴜᴋ ᴍɪɴᴛᴀ ᴍᴀᴀꜰ ᴅᴀɴ ᴅɪᴜɴʙᴀɴᴋᴀɴ ᴅᴀʀɪ ʙᴏᴛ...
+          if (name != 'admin-banunbanuser.js' && name != 'exp-daftar.js' && user?.banned) return conn.reply(m.chat,`ᴀɴᴅᴀ ᴛᴇʟᴀʜ ᴅɪ ʙᴀɴɴᴇᴅ ꜱɪʟᴀʜᴋᴀɴ ʜᴜʙᴜɴɢɪ ᴏᴡɴᴇʀ ᴜɴᴛᴜᴋ ᴍɪɴᴛᴀ ᴍᴀᴀꜰ ᴅᴀɴ ᴅɪᴜɴʙᴀɴᴋᴀɴ ᴅᴀʀɪ ʙᴏᴛ...
 ᴺᴼ ᴼʷⁿᵉʳ: http://wa.me/62895375950107
 ʟɪɴᴋ ɢᴄ : ${global.group.gc1}`.trim(), m)}
 
       if (plugin.rowner && plugin.owner && !(isROwner || isOwner || oner)) { // Both Owner
-          fail('rowner', m, this)
+          fail('rowner', m, conn)
           continue
       }
       if (plugin.rowner && !isROwner) { // Real Owner
-          fail('rowner', m, this)
+          fail('rowner', m, conn)
           continue
       }
       if (plugin.owner && !isOwner) { // Number Owner
-          fail('owner', m, this)
+          fail('owner', m, conn)
           continue
       }
       if (plugin.mods && !isMods) { // Moderator
-          fail('mods', m, this)
+          fail('mods', m, conn)
           continue
       }
       if (plugin.premium && !isPrems) { // Premium
-          fail('premium', m, this)
+          fail('premium', m, conn)
           continue
       }
       if (plugin.login && _user.logged === false && _user.registered === true) { // 86400 (1hari)NSFW Bukan di Grup
-          buttonfail('login', m, this)
+          buttonfail('login', m, conn)
           continue
       }
       if (plugin.nsfw && !m.isGroup) { // NSFW Belum cukup umur
-          fail('nsfw', m, this)
+          fail('nsfw', m, conn)
           continue
       }
       if (plugin.group && !m.isGroup) { // Group Only
-          fail('group', m, this)
+          fail('group', m, conn)
           continue
       } else if (plugin.botAdmin && !isBotAdmin) { // You Admin
-          fail('botAdmin', m, this)
+          fail('botAdmin', m, conn)
           continue
       } else if (plugin.admin && !isAdmin) { // User Admin
-          fail('admin', m, this)
+          fail('admin', m, conn)
           continue
       }
       if (plugin.private && m.isGroup) { // Private Chat Only
-          fail('private', m, this)
+          fail('private', m, conn)
           continue
       }
       if (plugin.register == true && _user.registered == false) { // Butuh daftar?
-          fail('unreg', m, this)
+          fail('unreg', m, conn)
           continue
       }
       if (plugin.text && text.length > 1500 ) { // Private Chat Only
-          fail('text', m, this)
+          fail('text', m, conn)
           continue
       }
       m.exp = 1
@@ -351,11 +349,11 @@ export async function handler(m) {
       else
           m.exp += xp
       if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
-          this.reply(m.chat, `[❗] ʟɪᴍɪᴛ ᴀɴᴅᴀ ʜᴀʙɪꜱ, ꜱɪʟᴀʜᴋᴀɴ ʙᴇʟɪ ᴍᴇʟᴀʟᴜɪ *${usedPrefix}buy limit*.`, m)
+          conn.reply(m.chat, `[❗] ʟɪᴍɪᴛ ᴀɴᴅᴀ ʜᴀʙɪꜱ, ꜱɪʟᴀʜᴋᴀɴ ʙᴇʟɪ ᴍᴇʟᴀʟᴜɪ *${usedPrefix}buy limit*.`, m)
           continue // Limit habis
       }
       if (plugin.level > _user.level) {
-          this.reply(m.chat, `[💬] ᴅɪᴘᴇʀʟᴜᴋᴀɴ ʟᴇᴠᴇʟ ${plugin.level} ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ.\n*ʟᴇᴠᴇʟ ᴍᴜ:* ${_user.level} 📊\nᴋᴇᴛɪᴋ: .ʟᴇᴠᴇʟᴜᴘ`, m)
+          conn.reply(m.chat, `[💬] ᴅɪᴘᴇʀʟᴜᴋᴀɴ ʟᴇᴠᴇʟ ${plugin.level} ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ.\n*ʟᴇᴠᴇʟ ᴍᴜ:* ${_user.level} 📊\nᴋᴇᴛɪᴋ: .ʟᴇᴠᴇʟᴜᴘ`, m)
           continue // If the level has not been reached
       }
       let extra = {
@@ -366,7 +364,7 @@ export async function handler(m) {
           args,
           command,
           text,
-          conn: this,
+          conn,
           participants,
           isROwner,
           isOwner,
@@ -377,18 +375,21 @@ export async function handler(m) {
           __filename
       }
       try { 
-          await plugin.call(this, m, extra)
+          await m.react("⏳");
+          await plugin.call(conn, m, extra)
           if (!isPrems) m.limit = m.limit || plugin.limit || false
+          m.react("✅");
       } catch (e) {
           m.error = e
           console.error(`Plugins Call => ${e}`)
+          await m.react("❌");
           if (e) {
               let text = format(e)
               let dir = format(___dirname)
               let textsender = text.replace(dir, '#BerkahEsport.ID')
               for (let key of Object.values(restapi.apikey)) text = text.replace(new RegExp(key, 'g'), '#ApiBE')
               if (e.name) {
-                  m.send(global.nomor.owner + '@c.us', `*🗂️ Plugin:* ${m.plugin}\n*👤 Sender:* ${m.sender}\n*💬 Chat:* https://wa.me/${m.sender.replace('@c.us','')}\n*💻 Command:* ${usedPrefix}${command} ${args.join(' ')}\n📄 *Error Logs:*\n\n\`\`\`${text}\`\`\``.trim(), { quoted: m})
+                  m.report(`*🗂️ Plugin:* ${m.plugin}\n*👤 Sender:* ${m.sender}\n*💬 Chat:* https://wa.me/${m.sender.replace('@c.us','')}\n*💻 Command:* ${usedPrefix}${command} ${args.join(' ')}\n📄 *Error Logs:*\n\n\`\`\`${text}\`\`\``.trim(), { quoted: m})
               }
               m.reply(textsender.replace(new RegExp(`https://raw.githubusercontent.com/BerkahEsport/api-be/main/`, 'g'), '#BerkahEsport.ID')) //_ᴍᴀᴀꜰ ᴄᴏᴍᴍᴀɴᴅ ʏᴀɴɢ ᴀɴᴅᴀ ᴘᴀᴋᴀɪ ꜱᴇᴅᴀɴɢ ᴇʀʀᴏʀ, ꜱɪʟᴀʜᴋᴀɴ ᴄᴏʙᴀ ʙᴇʙᴇʀᴀᴘᴀ ꜱᴀᴀᴛ ʟᴀɢɪ...!_`.trim())`) 
           }
@@ -396,7 +397,7 @@ export async function handler(m) {
         } finally {
           if (typeof plugin.after === 'function') {
               try {
-                  await plugin.after.call(this, m, extra)
+                  await plugin.after.call(conn, m, extra)
               } catch (e) {
                   console.error(`Plugins After => ${e}`)
               }
@@ -449,7 +450,7 @@ if (global.db.data.settings[conn.user.jid] ) {
 if (Number(new Date * 1) - global.db.data.settings[conn.user.jid].hittime > 86400000) {
 global.db.data.settings[conn.user.jid].hittime = Number(new Date) //1 Hari
 if (stats.today) {
-this.reply(global.nomor.ownerid ,`ᴛᴏᴛᴀʟ ʜɪᴛ ᴋᴇᴍᴀʀɪɴ: ${stats.today}`) 
+conn.reply(global.nomor.ownerid ,`ᴛᴏᴛᴀʟ ʜɪᴛ ᴋᴇᴍᴀʀɪɴ: ${stats.today}`) 
 stats.today = 0
 } } else return } else return
 } catch (e) {
@@ -514,7 +515,7 @@ export async function participantsUpdate (conn, action) {
             for (let user of participants) {
                 let pp = global.logo.thumb
                 try {
-                    pp = await conn.getProfilePict(user)
+                    pp = await conn.profilePictureUrl(user)
                 } catch (e) {
                   conn.sendMessage(global.nomor.ownerid, JSON.stringify(e))
                 } finally { 
@@ -532,7 +533,7 @@ export async function participantsUpdate (conn, action) {
             for (let user of participants) {
                 let pp = global.logo.thumb
                 try {
-                    pp = await conn.getProfilePict(user)
+                    pp = await conn.profilePictureUrl(user)
                 } catch (e) {
                   conn.sendMessage(global.nomor.ownerid, JSON.stringify(e))
                   console.log(JSON.stringify(e))

@@ -1,5 +1,5 @@
 import { createHash } from 'crypto'
-let handler = async function ( m, { args } )
+let handler = async function ( m, { conn, args } )
 {
   let user = global.db.data.users[m.sender]
   let sn = createHash('md5').update(m.sender).digest('hex')
